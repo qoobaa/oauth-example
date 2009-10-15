@@ -11,7 +11,6 @@ Rails::Initializer.run do |config|
   config.gem "haml"
   config.gem "rack"
   config.gem "oauth"
-  #config.gem "oauth-plugin"
 
   config.middleware.use "Rack::Bug"
 end

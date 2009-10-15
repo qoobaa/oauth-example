@@ -1,6 +1,6 @@
 class OauthController < ApplicationController
   before_filter :require_user, :only => [:authorize, :revoke]
-  before_filter :require_login_or_oauth, :only => [:test_request]
+  before_filter :require_oauth_or_user, :only => [:test_request]
   before_filter :require_oauth, :only => [:invalidate, :capabilities]
   before_filter :verify_oauth_consumer_signature, :only => [:request_token]
   before_filter :verify_oauth_request_token, :only => [:access_token]
@@ -68,20 +68,20 @@ class OauthController < ApplicationController
   # Invalidate current token
   def invalidate
     current_token.invalidate!
-    head :status=>410
+    head :status => 410
   end
 
   # Capabilities of current_token
   def capabilities
     if current_token.respond_to?(:capabilities)
-      @capabilities=current_token.capabilities
+      @capabilities = current_token.capabilities
     else
-      @capabilities={:invalidate=>url_for(:action=>:invalidate)}
+      @capabilities = { :invalidate => url_for(:action => :invalidate) }
     end
 
     respond_to do |format|
-      format.json {render :json=>@capabilities}
-      format.xml {render :xml=>@capabilities}
+      format.json { render :json => @capabilities }
+      format.xml { render :xml => @capabilities }
     end
   end
 

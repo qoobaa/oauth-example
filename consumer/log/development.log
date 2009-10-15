@@ -10020,3 +10020,235 @@ Processing OauthConsumersController#index (for 127.0.0.1 at 2009-10-15 15:59:16)
   [4;35;1mConsumerToken Load (1.2ms)[0m   [0mSELECT * FROM "consumer_tokens" [0m
 Rendering oauth_consumers/index
 Completed in 21ms (View: 2, DB: 1) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (113.8ms)[0m   [0;1mCREATE TABLE "consumer_tokens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "type" varchar(30), "token" varchar(1024), "secret" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (80.2ms)[0m   [0mCREATE UNIQUE INDEX "index_consumer_tokens_on_token" ON "consumer_tokens" ("token")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (78.7ms)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (79.2ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (78.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20091015080506')[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-15 16:05:49) [GET]
+
+ActionController::RoutingError (No route matches "/account" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-15 16:05:49) [GET]
+
+ActionController::RoutingError (No route matches "/account" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-15 16:05:53) [GET]
+
+ActionController::RoutingError (No route matches "/user" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-15 16:06:19) [GET]
+
+ActionController::RoutingError (No route matches "/user/1" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-15 16:06:23) [GET]
+
+ActionController::RoutingError (No route matches "/users/1" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthConsumersController#index (for 127.0.0.1 at 2009-10-15 16:28:50) [GET]
+  [4;36;1mConsumerToken Load (0.8ms)[0m   [0;1mSELECT * FROM "consumer_tokens" [0m
+Rendering oauth_consumers/index
+Completed in 26ms (View: 14, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing OauthConsumersController#show (for 127.0.0.1 at 2009-10-15 16:28:51) [GET]
+  Parameters: {"id"=>"cv"}
+  [4;35;1mCvToken Load (0.6ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) ORDER BY consumer_tokens.id DESC LIMIT 1[0m
+Rendering oauth_consumers/show
+Completed in 42ms (View: 26, DB: 1) | 200 OK [http://localhost/oauth_consumers/cv]
+
+
+Processing OauthConsumersController#destroy (for 127.0.0.1 at 2009-10-15 16:28:52) [DELETE]
+  Parameters: {"authenticity_token"=>"WngVkZ7KfiBGDPlfGKr8u5PFCJi+66RSHEuiLzy7UIA=", "commit"=>"Reconnect", "id"=>"cv"}
+  [4;36;1mCvToken Load (0.3ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) ORDER BY consumer_tokens.id DESC LIMIT 1[0m
+  [4;35;1mCvToken Destroy (1.3ms)[0m   [0mDELETE FROM "consumer_tokens" WHERE "id" = 28[0m
+Redirected to http://localhost:3001/oauth_consumers/cv
+Completed in 209ms (DB: 2) | 302 Found [http://localhost/oauth_consumers/cv]
+
+
+Processing OauthConsumersController#show (for 127.0.0.1 at 2009-10-15 16:28:52) [GET]
+  Parameters: {"id"=>"cv"}
+  [4;36;1mCvToken Load (0.1ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) ORDER BY consumer_tokens.id DESC LIMIT 1[0m
+Redirected to http://localhost:3000/oauth/authorize?oauth_token=HLmlwgM87tyRe7EKrnXz
+Completed in 500ms (DB: 0) | 302 Found [http://localhost/oauth_consumers/cv]
+
+
+Processing OauthConsumersController#callback (for 127.0.0.1 at 2009-10-15 16:28:56) [GET]
+  Parameters: {"oauth_token"=>"HLmlwgM87tyRe7EKrnXz", "oauth_verifier"=>"6z14C9RigapOiQKmPk6k", "id"=>"cv"}
+  [4;35;1mCvToken Load (0.3ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) ORDER BY consumer_tokens.id DESC LIMIT 1[0m
+  [4;36;1mCvToken Create (2.2ms)[0m   [0;1mINSERT INTO "consumer_tokens" ("user_id", "type", "token", "secret", "created_at", "updated_at") VALUES(NULL, 'CvToken', 'epoAvp0rlqJexlinSQIe', 'EgNkDY1reVKnY7CKGOF4G76R2GXTn94IoBO2F3Xk', '2009-10-15 16:28:56', '2009-10-15 16:28:56')[0m
+Redirected to http://localhost:3001/
+Completed in 447ms (DB: 3) | 302 Found [http://localhost/oauth_consumers/cv/callback?oauth_token=HLmlwgM87tyRe7EKrnXz&oauth_verifier=6z14C9RigapOiQKmPk6k]
+
+
+Processing OauthConsumersController#index (for 127.0.0.1 at 2009-10-15 16:28:56) [GET]
+  [4;35;1mConsumerToken Load (1.2ms)[0m   [0mSELECT * FROM "consumer_tokens" [0m
+Rendering oauth_consumers/index
+Completed in 20ms (View: 2, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing OauthConsumersController#show (for 127.0.0.1 at 2009-10-15 16:30:49) [GET]
+  Parameters: {"id"=>"cv"}
+  [4;36;1mCvToken Load (0.3ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) ORDER BY consumer_tokens.id DESC LIMIT 1[0m
+Rendering oauth_consumers/show
+Completed in 11ms (View: 2, DB: 0) | 200 OK [http://localhost/oauth_consumers/cv]
+
+
+Processing OauthConsumersController#destroy (for 127.0.0.1 at 2009-10-15 16:30:50) [DELETE]
+  Parameters: {"authenticity_token"=>"WngVkZ7KfiBGDPlfGKr8u5PFCJi+66RSHEuiLzy7UIA=", "commit"=>"Reconnect", "id"=>"cv"}
+  [4;35;1mCvToken Load (0.5ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) ORDER BY consumer_tokens.id DESC LIMIT 1[0m
+  [4;36;1mCvToken Destroy (1.7ms)[0m   [0;1mDELETE FROM "consumer_tokens" WHERE "id" = 29[0m
+Redirected to http://localhost:3001/oauth_consumers/cv
+Completed in 117ms (DB: 2) | 302 Found [http://localhost/oauth_consumers/cv]
+
+
+Processing OauthConsumersController#show (for 127.0.0.1 at 2009-10-15 16:30:50) [GET]
+  Parameters: {"id"=>"cv"}
+  [4;35;1mCvToken Load (0.3ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) ORDER BY consumer_tokens.id DESC LIMIT 1[0m
+Redirected to http://localhost:3000/oauth/authorize?oauth_token=fl07TCmsWVouhNxomDQw
+Completed in 340ms (DB: 0) | 302 Found [http://localhost/oauth_consumers/cv]
+
+
+Processing OauthConsumersController#callback (for 127.0.0.1 at 2009-10-15 16:30:53) [GET]
+  Parameters: {"oauth_token"=>"fl07TCmsWVouhNxomDQw", "oauth_verifier"=>"bLvlVS0UGpf3N2IR6u8R", "id"=>"cv"}
+  [4;36;1mCvToken Load (0.1ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) ORDER BY consumer_tokens.id DESC LIMIT 1[0m
+  [4;35;1mCvToken Create (2.2ms)[0m   [0mINSERT INTO "consumer_tokens" ("user_id", "type", "token", "secret", "created_at", "updated_at") VALUES(NULL, 'CvToken', 'epoAvp0rlqJexlinSQIe', 'EgNkDY1reVKnY7CKGOF4G76R2GXTn94IoBO2F3Xk', '2009-10-15 16:30:53', '2009-10-15 16:30:53')[0m
+Redirected to http://localhost:3001/
+Completed in 445ms (DB: 2) | 302 Found [http://localhost/oauth_consumers/cv/callback?oauth_token=fl07TCmsWVouhNxomDQw&oauth_verifier=bLvlVS0UGpf3N2IR6u8R]
+
+
+Processing OauthConsumersController#index (for 127.0.0.1 at 2009-10-15 16:30:54) [GET]
+  [4;36;1mConsumerToken Load (1.1ms)[0m   [0;1mSELECT * FROM "consumer_tokens" [0m
+Rendering oauth_consumers/index
+Completed in 20ms (View: 2, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing OauthConsumersController#show (for 127.0.0.1 at 2009-10-15 16:31:54) [GET]
+  Parameters: {"id"=>"cv"}
+  [4;35;1mCvToken Load (0.3ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) ORDER BY consumer_tokens.id DESC LIMIT 1[0m
+Rendering oauth_consumers/show
+Completed in 35ms (View: 2, DB: 0) | 200 OK [http://localhost/oauth_consumers/cv]
+
+
+Processing OauthConsumersController#destroy (for 127.0.0.1 at 2009-10-15 16:31:55) [DELETE]
+  Parameters: {"authenticity_token"=>"WngVkZ7KfiBGDPlfGKr8u5PFCJi+66RSHEuiLzy7UIA=", "commit"=>"Reconnect", "id"=>"cv"}
+  [4;36;1mCvToken Load (0.5ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) ORDER BY consumer_tokens.id DESC LIMIT 1[0m
+  [4;35;1mCvToken Destroy (1.7ms)[0m   [0mDELETE FROM "consumer_tokens" WHERE "id" = 30[0m
+Redirected to http://localhost:3001/oauth_consumers/cv
+Completed in 172ms (DB: 2) | 302 Found [http://localhost/oauth_consumers/cv]
+
+
+Processing OauthConsumersController#show (for 127.0.0.1 at 2009-10-15 16:31:55) [GET]
+  Parameters: {"id"=>"cv"}
+  [4;36;1mCvToken Load (0.3ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) ORDER BY consumer_tokens.id DESC LIMIT 1[0m
+Redirected to http://localhost:3000/oauth/authorize?oauth_token=5jIJxnAJD6dSTS84JkEQ
+Completed in 345ms (DB: 0) | 302 Found [http://localhost/oauth_consumers/cv]
+
+
+Processing OauthConsumersController#callback (for 127.0.0.1 at 2009-10-15 16:31:58) [GET]
+  Parameters: {"oauth_token"=>"5jIJxnAJD6dSTS84JkEQ", "oauth_verifier"=>"dhyk23kSTdJ3hf8X4Dtq", "id"=>"cv"}
+  [4;35;1mCvToken Load (0.1ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) ORDER BY consumer_tokens.id DESC LIMIT 1[0m
+  [4;36;1mCvToken Create (2.1ms)[0m   [0;1mINSERT INTO "consumer_tokens" ("user_id", "type", "token", "secret", "created_at", "updated_at") VALUES(NULL, 'CvToken', 'epoAvp0rlqJexlinSQIe', 'EgNkDY1reVKnY7CKGOF4G76R2GXTn94IoBO2F3Xk', '2009-10-15 16:31:59', '2009-10-15 16:31:59')[0m
+Redirected to http://localhost:3001/
+Completed in 440ms (DB: 2) | 302 Found [http://localhost/oauth_consumers/cv/callback?oauth_token=5jIJxnAJD6dSTS84JkEQ&oauth_verifier=dhyk23kSTdJ3hf8X4Dtq]
+
+
+Processing OauthConsumersController#index (for 127.0.0.1 at 2009-10-15 16:31:59) [GET]
+  [4;35;1mConsumerToken Load (1.4ms)[0m   [0mSELECT * FROM "consumer_tokens" [0m
+Rendering oauth_consumers/index
+Completed in 21ms (View: 2, DB: 1) | 200 OK [http://localhost/]
+  [4;36;1mCvToken Load (0.2ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mCvToken Load (0.6ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;36;1mCvToken Load (0.6ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mCvToken Load (0.6ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mCvToken Load (0.6ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;36;1mCvToken Load (0.4ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mCvToken Load (0.6ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;36;1mCvToken Load (0.4ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mCvToken Load (0.7ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;36;1mCvToken Load (0.4ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mCvToken Load (0.6ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;36;1mCvToken Load (0.4ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mCvToken Load (0.6ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;36;1mCvToken Load (0.4ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mCvToken Load (0.6ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;36;1mCvToken Load (0.4ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mCvToken Load (0.6ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;36;1mCvToken Load (0.4ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mCvToken Load (0.6ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;36;1mCvToken Load (0.6ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mCvToken Load (0.6ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;36;1mCvToken Load (0.5ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mCvToken Load (0.6ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;36;1mCvToken Load (0.4ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mCvToken Load (0.6ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;36;1mCvToken Load (0.4ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mCvToken Load (0.6ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;36;1mCvToken Load (0.6ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mCvToken Load (0.4ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;36;1mCvToken Load (0.6ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mCvToken Load (0.5ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;36;1mCvToken Load (0.6ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mCvToken Load (0.6ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;36;1mCvToken Load (0.6ms)[0m   [0;1mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
+  [4;35;1mCvToken Load (0.4ms)[0m   [0mSELECT * FROM "consumer_tokens" WHERE ( ("consumer_tokens"."type" = 'CvToken' ) ) LIMIT 1[0m
