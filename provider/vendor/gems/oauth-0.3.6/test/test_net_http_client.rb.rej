@@ -1,0 +1,17 @@
+*************** class NetHTTPClientTest < Test::Unit::TestCase
+*** 46,52 ****
+      request.set_form_data( @request_parameters )
+      request.oauth!(@http, @consumer, @token, {:nonce => @nonce, :timestamp => @timestamp})
+  
+-     assert_equal "OAuth gem v#{OAuth::VERSION}", request['User-Agent']
+    end
+  
+    def test_that_using_get_params_works
+--- 46,52 ----
+      request.set_form_data( @request_parameters )
+      request.oauth!(@http, @consumer, @token, {:nonce => @nonce, :timestamp => @timestamp})
+  
++     assert_equal "Ruby (OAuth gem v#{OAuth::VERSION})", request['User-Agent']
+    end
+  
+    def test_that_using_get_params_works

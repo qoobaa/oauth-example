@@ -1,0 +1,27 @@
+***************
+*** 1,9 ****
+  require 'oauth/signature/hmac/base'
+- require 'hmac-sha2'
+  
+  module OAuth::Signature::HMAC
+    class SHA2 < Base
+      implements 'hmac-sha2'
+-     digest_class ::HMAC::SHA2
+    end
+  end
+--- 1,15 ----
+  require 'oauth/signature/hmac/base'
++ require "openssl"
+  
+  module OAuth::Signature::HMAC
+    class SHA2 < Base
+      implements 'hmac-sha2'
++ 
++     private
++ 
++     def digest
++       digest = OpenSSL::Digest::Digest.new('sha2')
++       hmac = OpenSSL::HMAC.digest(digest, secret, signature_base_string)
++     end
+    end
+  end

@@ -1,0 +1,2 @@
+class CvToken < ConsumerToken
+end

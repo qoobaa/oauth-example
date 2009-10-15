@@ -1,0 +1,18 @@
+*************** $hoe = Hoe.new('oauth', OAuth::VERSION) do |p|
+*** 14,22 ****
+    p.rubyforge_name       = p.name # TODO this is default value
+    p.url = "http://oauth.rubyforge.org"
+  
+-   p.extra_deps         = [
+-     ['ruby-hmac','>= 0.3.1']
+-   ]
+    p.extra_dev_deps = [
+      ['newgem', ">= #{::Newgem::VERSION}"],
+      ['actionpack'],
+--- 14,19 ----
+    p.rubyforge_name       = p.name # TODO this is default value
+    p.url = "http://oauth.rubyforge.org"
+  
+    p.extra_dev_deps = [
+      ['newgem', ">= #{::Newgem::VERSION}"],
+      ['actionpack'],

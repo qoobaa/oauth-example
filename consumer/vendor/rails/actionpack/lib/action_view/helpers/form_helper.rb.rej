@@ -1,0 +1,19 @@
+*************** module ActionView
+*** 845,852 ****
+              false
+            when Integer
+              value != 0
+-           when String
+-             value == checked_value
+            when Array
+              value.include?(checked_value)
+            else
+--- 845,852 ----
+              false
+            when Integer
+              value != 0
++           when String, Symbol
++             value.to_s == checked_value.to_s
+            when Array
+              value.include?(checked_value)
+            else

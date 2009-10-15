@@ -1,0 +1,11 @@
+***************
+*** 1,4 ****
+- # coding=binary
+  
+  require 'set'
+  require 'tempfile'
+--- 1,4 ----
++ # -*- encoding: binary -*-
+  
+  require 'set'
+  require 'tempfile'

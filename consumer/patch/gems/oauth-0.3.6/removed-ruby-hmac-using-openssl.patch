@@ -1,0 +1,200 @@
+From a7bebf28a6067071a3a72996c002640674fa7636 Mon Sep 17 00:00:00 2001
+From: =?utf-8?q?Jakub=20Ku=C5=BAma?= <qoobaa+github@gmail.com>
+Date: Tue, 13 Oct 2009 13:08:42 +0200
+Subject: [PATCH] removed ruby-hmac, using openssl
+
+---
+ Rakefile                                     |    3 ---
+ lib/oauth/consumer.rb                        |    8 ++++----
+ lib/oauth/signature/hmac/md5.rb              |   10 ++++++++--
+ lib/oauth/signature/hmac/rmd160.rb           |   10 ++++++++--
+ lib/oauth/signature/hmac/sha1.rb             |   10 ++++++++--
+ lib/oauth/signature/hmac/sha2.rb             |   10 ++++++++--
+ test/test_action_controller_request_proxy.rb |    2 +-
+ test/test_net_http_client.rb                 |    2 +-
+ test/test_signature.rb                       |   18 +++++-------------
+ 9 files changed, 43 insertions(+), 30 deletions(-)
+
+diff --git a/Rakefile b/Rakefile
+index b2c7097..7ea73c2 100644
+--- a/Rakefile
++++ b/Rakefile
+@@ -14,9 +14,6 @@ $hoe = Hoe.new('oauth', OAuth::VERSION) do |p|
+   p.rubyforge_name       = p.name # TODO this is default value
+   p.url = "http://oauth.rubyforge.org"
+ 
+-  p.extra_deps         = [
+-    ['ruby-hmac','>= 0.3.1']
+-  ]
+   p.extra_dev_deps = [
+     ['newgem', ">= #{::Newgem::VERSION}"],
+     ['actionpack'],
+diff --git a/lib/oauth/consumer.rb b/lib/oauth/consumer.rb
+index cad3f58..6233881 100644
+--- a/lib/oauth/consumer.rb
++++ b/lib/oauth/consumer.rb
+@@ -75,9 +75,9 @@ module OAuth
+       @secret = consumer_secret
+ 
+       # ensure that keys are symbols
+-      @options = @@default_options.merge(options.inject({}) { |options, (key, value)|
+-        options[key.to_sym] = value
+-        options
++      @options = @@default_options.merge(options.inject({}) { |acc, (key, value)|
++        acc[key.to_sym] = value
++        acc
+       })
+     end
+ 
+@@ -152,7 +152,7 @@ module OAuth
+       # (http://wiki.oauth.net/ProblemReporting)
+       # note: a 200 may actually be an error; check for an oauth_problem key to be sure
+       if !(headers = rsp.to_hash["www-authenticate"]).nil? &&
+-        (h = headers.select { |h| h =~ /^OAuth / }).any? &&
++        (h = headers.select { |header| header =~ /^OAuth / }).any? &&
+         h.first =~ /oauth_problem/
+ 
+         # puts "Header: #{h.first}"
+diff --git a/lib/oauth/signature/hmac/md5.rb b/lib/oauth/signature/hmac/md5.rb
+index 5363e98..3f8e4de 100644
+--- a/lib/oauth/signature/hmac/md5.rb
++++ b/lib/oauth/signature/hmac/md5.rb
+@@ -1,9 +1,15 @@
+ require 'oauth/signature/hmac/base'
+-require 'hmac-md5'
++require "openssl"
+ 
+ module OAuth::Signature::HMAC
+   class MD5 < Base
+     implements 'hmac-md5'
+-    digest_class ::HMAC::MD5
++
++    private
++
++    def digest
++      digest = OpenSSL::Digest::Digest.new('md5')
++      hmac = OpenSSL::HMAC.digest(digest, secret, signature_base_string)
++    end
+   end
+ end
+diff --git a/lib/oauth/signature/hmac/rmd160.rb b/lib/oauth/signature/hmac/rmd160.rb
+index 1a5b250..0b145d0 100644
+--- a/lib/oauth/signature/hmac/rmd160.rb
++++ b/lib/oauth/signature/hmac/rmd160.rb
+@@ -1,9 +1,15 @@
+ require 'oauth/signature/hmac/base'
+-require 'hmac-rmd160'
++require "openssl"
+ 
+ module OAuth::Signature::HMAC
+   class RMD160 < Base
+     implements 'hmac-rmd160'
+-    digest_class ::HMAC::RMD160
++
++    private
++
++    def digest
++      digest = OpenSSL::Digest::Digest.new('rmd160')
++      hmac = OpenSSL::HMAC.digest(digest, secret, signature_base_string)
++    end
+   end
+ end
+diff --git a/lib/oauth/signature/hmac/sha1.rb b/lib/oauth/signature/hmac/sha1.rb
+index 9391eb4..6786cd9 100644
+--- a/lib/oauth/signature/hmac/sha1.rb
++++ b/lib/oauth/signature/hmac/sha1.rb
+@@ -1,9 +1,15 @@
+ require 'oauth/signature/hmac/base'
+-require 'hmac-sha1'
++require "openssl"
+ 
+ module OAuth::Signature::HMAC
+   class SHA1 < Base
+     implements 'hmac-sha1'
+-    digest_class ::HMAC::SHA1
++
++    private
++
++    def digest
++      digest = OpenSSL::Digest::Digest.new('sha1')
++      hmac = OpenSSL::HMAC.digest(digest, secret, signature_base_string)
++    end
+   end
+ end
+diff --git a/lib/oauth/signature/hmac/sha2.rb b/lib/oauth/signature/hmac/sha2.rb
+index f3f4d40..20a9f0b 100644
+--- a/lib/oauth/signature/hmac/sha2.rb
++++ b/lib/oauth/signature/hmac/sha2.rb
+@@ -1,9 +1,15 @@
+ require 'oauth/signature/hmac/base'
+-require 'hmac-sha2'
++require "openssl"
+ 
+ module OAuth::Signature::HMAC
+   class SHA2 < Base
+     implements 'hmac-sha2'
+-    digest_class ::HMAC::SHA2
++
++    private
++
++    def digest
++      digest = OpenSSL::Digest::Digest.new('sha2')
++      hmac = OpenSSL::HMAC.digest(digest, secret, signature_base_string)
++    end
+   end
+ end
+diff --git a/test/test_action_controller_request_proxy.rb b/test/test_action_controller_request_proxy.rb
+index 6a90f5e..6e14fb7 100644
+--- a/test/test_action_controller_request_proxy.rb
++++ b/test/test_action_controller_request_proxy.rb
+@@ -1,4 +1,4 @@
+-gem 'actionpack','2.2.2'
++gem 'actionpack','2.3.4'
+ require File.dirname(__FILE__) + '/test_helper.rb'
+ 
+ require 'oauth/request_proxy/action_controller_request'
+diff --git a/test/test_net_http_client.rb b/test/test_net_http_client.rb
+index e3b162b..ec5a0d1 100644
+--- a/test/test_net_http_client.rb
++++ b/test/test_net_http_client.rb
+@@ -46,7 +46,7 @@ class NetHTTPClientTest < Test::Unit::TestCase
+     request.set_form_data( @request_parameters )
+     request.oauth!(@http, @consumer, @token, {:nonce => @nonce, :timestamp => @timestamp})
+ 
+-    assert_equal "OAuth gem v#{OAuth::VERSION}", request['User-Agent']
++    assert_equal "Ruby (OAuth gem v#{OAuth::VERSION})", request['User-Agent']
+   end
+ 
+   def test_that_using_get_params_works
+diff --git a/test/test_signature.rb b/test/test_signature.rb
+index c4b9ac1..aa4d2c5 100644
+--- a/test/test_signature.rb
++++ b/test/test_signature.rb
+@@ -1,19 +1,11 @@
++# encoding: UTF-8
++
+ require File.dirname(__FILE__) + '/test_helper.rb'
+ 
+ class TestOauth < Test::Unit::TestCase
+ 
+-  def test_parameter_escaping_kcode_invariant
+-    old = $KCODE
+-    begin
+-      %w(n N e E s S u U).each do |kcode|
+-        $KCODE = kcode
+-        assert_equal '%E3%81%82', OAuth::Helper.escape('あ'),
+-                      "Failed to correctly escape Japanese under $KCODE = #{kcode}"
+-        assert_equal '%C3%A9', OAuth::Helper.escape('é'),
+-                      "Failed to correctly escape e+acute under $KCODE = #{kcode}"
+-      end
+-    ensure
+-      $KCODE = old
+-    end
++  def test_parameter_escaping
++    assert_equal '%E3%81%82', OAuth::Helper.escape('あ')
++    assert_equal '%C3%A9', OAuth::Helper.escape('é')
+   end
+ end
+-- 
+1.6.0.4
+

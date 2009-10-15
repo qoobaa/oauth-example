@@ -1,0 +1,38 @@
+*************** module OAuth
+*** 75,83 ****
+        @secret = consumer_secret
+  
+        # ensure that keys are symbols
+-       @options = @@default_options.merge(options.inject({}) { |options, (key, value)|
+-         options[key.to_sym] = value
+-         options
+        })
+      end
+  
+--- 75,83 ----
+        @secret = consumer_secret
+  
+        # ensure that keys are symbols
++       @options = @@default_options.merge(options.inject({}) { |acc, (key, value)|
++         acc[key.to_sym] = value
++         acc
+        })
+      end
+  
+*************** module OAuth
+*** 152,158 ****
+        # (http://wiki.oauth.net/ProblemReporting)
+        # note: a 200 may actually be an error; check for an oauth_problem key to be sure
+        if !(headers = rsp.to_hash["www-authenticate"]).nil? &&
+-         (h = headers.select { |h| h =~ /^OAuth / }).any? &&
+          h.first =~ /oauth_problem/
+  
+          # puts "Header: #{h.first}"
+--- 152,158 ----
+        # (http://wiki.oauth.net/ProblemReporting)
+        # note: a 200 may actually be an error; check for an oauth_problem key to be sure
+        if !(headers = rsp.to_hash["www-authenticate"]).nil? &&
++         (h = headers.select { |header| header =~ /^OAuth / }).any? &&
+          h.first =~ /oauth_problem/
+  
+          # puts "Header: #{h.first}"
