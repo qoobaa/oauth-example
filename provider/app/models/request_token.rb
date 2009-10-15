@@ -14,7 +14,7 @@ class RequestToken < OauthToken
     return false unless verifier == provided_oauth_verifier
 
     RequestToken.transaction do
-      access_token = AccessToken.find_or_create_by_user_id_and_client_application_id(user_id, client_application_id)
+      access_token = AccessToken.find_or_create_by_user_id_and_client_application_id_and_invalidated_at(user_id, client_application_id, nil)
       invalidate!
       access_token
     end
