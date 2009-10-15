@@ -31,7 +31,7 @@ class ConsumerToken < ActiveRecord::Base
     @client ||= OAuth::AccessToken.new(self.class.consumer, token, secret)
   end
 
-  def simple_client
-    @simple_client ||= SimpleClient.new(OAuth::AccessToken.new(self.class.consumer, token, secret))
-  end
+  # def simple_client
+  #   @simple_client ||= SimpleClient.new(OAuth::AccessToken.new(self.class.consumer, token, secret))
+  # end
 end
