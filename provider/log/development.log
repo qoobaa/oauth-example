@@ -9443,3 +9443,7 @@ Processing OauthController#test_request (for 127.0.0.1 at 2009-10-15 16:46:56) [
   [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'yhhj8lq8u1Sx22doDGyJ3ctDw1kAqditQ9ELPPZPf4' AND "oauth_nonces".timestamp = 1255618016) LIMIT 1[0m
   [4;35;1mOauthNonce Create (1.9ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('yhhj8lq8u1Sx22doDGyJ3ctDw1kAqditQ9ELPPZPf4', 1255618016, '2009-10-15 16:46:56', '2009-10-15 16:46:56')[0m
 Completed in 141ms (View: 2, DB: 3) | 200 OK [http://localhost/oauth/test_request]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'kuba') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '5c68f14e9572a46c6a50a94703aa6e540b5d97b6941d8521d033164ae09efbd7bb7580af0b23132ece9140adea3a94917866c8013a3d9a43e435ba8f5470952c') LIMIT 1[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'kuba') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '29db4349f5ee4e1fa36a0029eaa7a25c72b7cb1b45f41a097760b0038b53bfae3a260914061aa378b8ebc335d77ed962219a9366235460ea79d92a8a971ac309') LIMIT 1[0m

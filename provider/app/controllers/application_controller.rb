@@ -51,12 +51,39 @@ class ApplicationController < ActionController::Base
 
   # OAUTH
 
+  # def current_token
+  #   @current_token
+  # end
+
+  # def current_token=(token)
+  #   @current_token = token
+  #   if @current_token
+  #     # @current_user = @current_token.user
+  #     @current_client_application = @current_token.client_application
+  #   end
+  #   @current_token
+  # end
+
   def current_token
-    @current_token
+    return @current_token if defined?(@current_token)
+    token = nil
+
+    valid = ClientApplication.verify_request(request) do |request_proxy|
+      token = ClientApplication.find_token(request_proxy.token)
+      if token
+        token.provided_oauth_verifier = request_proxy.oauth_verifier if token.respond_to?(:provided_oauth_verifier=)
+        [token.secret, token.client_application.secret]
+      end
+    end
+
+    @current_token = token if valid
   end
 
   def current_client_application
-    @current_client_application
+    return @current_client_application if defined?(@current_client_application)
+    if current_token
+      @current_client_application = current_token.client_application
+    end
   end
 
   # use in a before_filter
@@ -77,24 +104,15 @@ class ApplicationController < ActionController::Base
   end
 
   def verify_oauth_request_token
-    verify_oauth_signature && current_token.is_a?(::RequestToken)
+    current_token && current_token.is_a?(::RequestToken)
   end
 
   def verify_oauth_access_token
-    verify_oauth_signature && current_token.is_a?(::AccessToken)
+    current_token && current_token.is_a?(::AccessToken)
   end
 
   def invalid_oauth_response(code = 401, message = "Invalid OAuth Request")
     render :text => message, :status => code
-  end
-
-  def current_token=(token)
-    @current_token = token
-    if @current_token
-      # @current_user = @current_token.user
-      @current_client_application = @current_token.client_application
-    end
-    @current_token
   end
 
   # verifies a request token request
@@ -108,15 +126,5 @@ class ApplicationController < ActionController::Base
       end
     end
     invalid_oauth_response unless valid
-  end
-
-  def verify_oauth_signature
-    ClientApplication.verify_request(request) do |request_proxy|
-      self.current_token = ClientApplication.find_token(request_proxy.token)
-      if @current_token
-        @current_token.provided_oauth_verifier = request_proxy.oauth_verifier if @current_token.respond_to?(:provided_oauth_verifier=)
-        [@current_token.secret, @current_client_application.secret]
-      end
-    end
   end
 end
