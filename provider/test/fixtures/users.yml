@@ -1,0 +1,7 @@
+quentin:
+  id: 1
+  login: "quentin"
+  crypted_password: "5ebe2294ecd0e0f08eab7690d2a6ee69"
+  password_salt: ""
+  persistence_token: ""
+  

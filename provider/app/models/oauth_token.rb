@@ -21,6 +21,15 @@ class OauthToken < ActiveRecord::Base
     "oauth_token=#{token}&oauth_token_secret=#{secret}"
   end
 
+  def self.find_token(token_key)
+    token = find_by_token(token_key, :include => :client_application)
+    if token && token.authorized?
+      token
+    else
+      nil
+    end
+  end
+
   protected
 
   def generate_keys
