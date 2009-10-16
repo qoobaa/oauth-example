@@ -1,17 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
-module OAuthHelpers
-
-  def create_consumer
-    @consumer = OAuth::Consumer.new(
-      @application.key, @application.secret,
-      :site => @application.oauth_server.base_url
-    )
-  end
-
-end
 
 class ClientApplicationTest < ActiveSupport::TestCase
-  include OAuthHelpers
   fixtures :users, :client_applications, :oauth_tokens
 
   def setup
@@ -20,7 +9,10 @@ class ClientApplicationTest < ActiveSupport::TestCase
       :url  => "http://agree2.com",
       :user => users(:quentin)
     )
-    create_consumer
+    @consumer = OAuth::Consumer.new(
+      @application.key, @application.secret,
+      :site => @application.oauth_server.base_url
+    )
   end
 
   def test_should_be_valid
