@@ -12,11 +12,7 @@ end
 
 class ClientApplicationTest < ActiveSupport::TestCase
   include OAuthHelpers
-<<<<<<< HEAD:provider/test/unit/client_application_test.rb
-  fixtures :users,:client_applications,:oauth_tokens
-=======
   fixtures :users, :client_applications, :oauth_tokens
->>>>>>> modified some unit tests:provider/test/unit/client_application_test.rb
 
   def setup
     @application = ClientApplication.create(
