@@ -2,16 +2,14 @@ class OauthController < ApplicationController
   before_filter :require_user, :only => [:authorize, :revoke]
   before_filter :require_oauth_or_user, :only => [:test_request]
   before_filter :require_oauth, :only => [:invalidate, :capabilities]
-  before_filter :verify_oauth_consumer_signature, :only => [:request_token]
   before_filter :verify_oauth_request_token, :only => [:access_token]
-  skip_before_filter :verify_authenticity_token, :only=>[:request_token, :access_token, :invalidate, :test_request]
 
   def request_token
     @token = current_client_application.create_request_token
     if @token
       render :text => @token.to_query
     else
-      render :nothing => true, :status => 401
+      head :unauthorized
     end
   end
 
@@ -20,24 +18,17 @@ class OauthController < ApplicationController
     if @token
       render :text => @token.to_query
     else
-      render :nothing => true, :status => 401
+      head :unauthorized
     end
   end
 
-  def test_request
-    render :text => params.collect{ |k,v| "#{k}=#{v}" }.join("&")
-  end
-
+  # Handles GET (renders form) and POST (usually redirects) - probably
+  # might be decoupled
   def authorize
-    @token = ::RequestToken.find_by_token params[:oauth_token]
-    unless @token
-      render :action => "authorize_failure"
-      return
-    end
-
-    unless @token.invalidated?
+    @token = RequestToken.valid.find_by_token params[:oauth_token]
+    if @token
       if request.post?
-        if user_authorizes_token?
+        if params.has_key?(:authorize)
           @token.authorize!(current_user)
           @redirect_url = @token.oob? ? @token.client_application.callback_url : @token.callback_url
 
@@ -56,19 +47,26 @@ class OauthController < ApplicationController
     end
   end
 
+  # Additional stuff begins here - may be moved
   def revoke
     @token = current_user.tokens.find_by_token params[:token]
+
     if @token
       @token.invalidate!
       flash[:notice] = "You've revoked the token for #{@token.client_application.name}"
     end
+
     redirect_to oauth_clients_url
+  end
+
+  def test_request
+    head :ok
   end
 
   # Invalidate current token
   def invalidate
     current_token.invalidate!
-    head :status => 410
+    head :gone
   end
 
   # Capabilities of current_token
@@ -83,12 +81,5 @@ class OauthController < ApplicationController
       format.json { render :json => @capabilities }
       format.xml { render :xml => @capabilities }
     end
-  end
-
-  protected
-
-  # Override this to match your authorization page form
-  def user_authorizes_token?
-    params[:authorize] == '1'
   end
 end

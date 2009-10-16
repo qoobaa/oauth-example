@@ -51,19 +51,6 @@ class ApplicationController < ActionController::Base
 
   # OAUTH
 
-  # def current_token
-  #   @current_token
-  # end
-
-  # def current_token=(token)
-  #   @current_token = token
-  #   if @current_token
-  #     # @current_user = @current_token.user
-  #     @current_client_application = @current_token.client_application
-  #   end
-  #   @current_token
-  # end
-
   def current_token
     return @current_token if defined?(@current_token)
     token = nil
@@ -76,31 +63,39 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    @current_token = token if valid
+    if valid
+      @current_token = token
+      @current_user = token.user
+      @current_client_application = token.client_application
+      token
+    end
   end
 
   def current_client_application
     return @current_client_application if defined?(@current_client_application)
-    if current_token
-      @current_client_application = current_token.client_application
+    client_application = nil
+
+    valid = ClientApplication.verify_request(request) do |request_proxy|
+      client_application = ClientApplication.find_by_key(request_proxy.consumer_key)
+
+      if client_application
+        client_application.token_callback_url = request_proxy.oauth_callback if request_proxy.oauth_callback
+        [nil, client_application.secret]
+      end
     end
+
+    @current_client_application = client_application if valid
   end
 
-  # use in a before_filter
   def require_oauth
-    if verify_oauth_access_token
-      true
-    else
-      invalid_oauth_response
+    unless verify_oauth_access_token
+      head :unauthorized
+      return false
     end
   end
 
   def require_oauth_or_user
-    if verify_oauth_access_token
-      true
-    else
-      require_user
-    end
+    require_user unless verify_oauth_access_token
   end
 
   def verify_oauth_request_token
@@ -109,22 +104,5 @@ class ApplicationController < ActionController::Base
 
   def verify_oauth_access_token
     current_token && current_token.is_a?(::AccessToken)
-  end
-
-  def invalid_oauth_response(code = 401, message = "Invalid OAuth Request")
-    render :text => message, :status => code
-  end
-
-  # verifies a request token request
-  def verify_oauth_consumer_signature
-    valid = ClientApplication.verify_request(request) do |request_proxy|
-      @current_client_application = ClientApplication.find_by_key(request_proxy.consumer_key)
-
-      if @current_client_application
-        @current_client_application.token_callback_url = request_proxy.oauth_callback if request_proxy.oauth_callback
-        [nil, @current_client_application.secret]
-      end
-    end
-    invalid_oauth_response unless valid
   end
 end

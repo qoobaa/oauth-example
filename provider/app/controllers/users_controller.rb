@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => [:show, :edit, :update]
+  before_filter :require_oauth_or_user, :only => [:show, :edit, :update]
 
   def new
     @user = User.new
@@ -17,7 +17,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = @current_user
+    @user = current_user
+
+    respond_to do |format|
+      format.html { }
+      format.xml { render :xml => @user.to_xml(:except => [:password_salt, :persistence_token, :crypted_password]) }
+      format.json { render :json => @user.to_json(:except => [:password_salt, :persistence_token, :crypted_password]) }
+    end
   end
 
   def edit
