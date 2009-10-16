@@ -13,12 +13,16 @@ class ConsumerToken < ActiveRecord::Base
     consumer.get_request_token(:oauth_callback => callback_url)
   end
 
-  def self.create_from_request_token(token, secret, oauth_verifier)
+  def self.find_or_create_from_request_token(token, secret, oauth_verifier)
     request_token = OAuth::RequestToken.new(consumer, token, secret)
     options = {}
     options[:oauth_verifier] = oauth_verifier if oauth_verifier
-    access_token = request_token.get_access_token options
-    create(:token => access_token.token, :secret => access_token.secret)
+    access_token = request_token.get_access_token(options)
+    find_or_create_by_token_and_secret(access_token.token, access_token.secret)
+  end
+
+  def client
+    @client ||= OAuth::AccessToken.new(self.class.consumer, token, secret)
   end
 
   protected
@@ -26,12 +30,4 @@ class ConsumerToken < ActiveRecord::Base
   def self.credentials
     @credentials ||= OAUTH_CREDENTIALS[service_name]
   end
-
-  def client
-    @client ||= OAuth::AccessToken.new(self.class.consumer, token, secret)
-  end
-
-  # def simple_client
-  #   @simple_client ||= SimpleClient.new(OAuth::AccessToken.new(self.class.consumer, token, secret))
-  # end
 end

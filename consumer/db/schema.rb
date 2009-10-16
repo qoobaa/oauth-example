@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091015080506) do
+ActiveRecord::Schema.define(:version => 20091016100248) do
 
   create_table "consumer_tokens", :force => true do |t|
     t.integer  "user_id"
@@ -21,5 +21,12 @@ ActiveRecord::Schema.define(:version => 20091015080506) do
   end
 
   add_index "consumer_tokens", ["token"], :name => "index_consumer_tokens_on_token", :unique => true
+
+  create_table "users", :force => true do |t|
+    t.string   "login"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

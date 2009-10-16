@@ -22,16 +22,13 @@ class OauthController < ApplicationController
     end
   end
 
-  def test_request
-    render :text => params.collect{ |k,v| "#{k}=#{v}" }.join("&")
-  end
-
+  # Handles GET (renders form) and POST (usually redirects) - probably
+  # might be decoupled
   def authorize
     @token = RequestToken.valid.find_by_token params[:oauth_token]
-
     if @token
       if request.post?
-        if user_authorizes_token?
+        if params.has_key?(:authorize)
           @token.authorize!(current_user)
           @redirect_url = @token.oob? ? @token.client_application.callback_url : @token.callback_url
 
@@ -50,6 +47,7 @@ class OauthController < ApplicationController
     end
   end
 
+  # Additional stuff begins here - may be moved
   def revoke
     @token = current_user.tokens.find_by_token params[:token]
 
@@ -59,6 +57,10 @@ class OauthController < ApplicationController
     end
 
     redirect_to oauth_clients_url
+  end
+
+  def test_request
+    head :ok
   end
 
   # Invalidate current token
@@ -79,12 +81,5 @@ class OauthController < ApplicationController
       format.json { render :json => @capabilities }
       format.xml { render :xml => @capabilities }
     end
-  end
-
-  protected
-
-  # Override this to match your authorization page form
-  def user_authorizes_token?
-    params[:authorize] == '1'
   end
 end

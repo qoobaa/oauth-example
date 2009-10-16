@@ -11677,3 +11677,1975 @@ ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" wit
   /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
 
 Rendering rescues/layout (not_found)
+
+
+Processing OauthController#capabilities (for 127.0.0.1 at 2009-10-16 11:45:36) [GET]
+  Parameters: {"controller"=>"oauth", "action"=>"capabilities"}
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'Mdi5yLRzmKefe1iH6oVFXPNGfHZ4VWB2Z53UIIglWgA' AND "oauth_nonces".timestamp = 1255686336) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.8ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('Mdi5yLRzmKefe1iH6oVFXPNGfHZ4VWB2Z53UIIglWgA', 1255686336, '2009-10-16 11:45:36', '2009-10-16 11:45:36')[0m
+Completed in 148ms (View: 2, DB: 3) | 200 OK [http://localhost/oauth/capabilities]
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 11:47:52) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'xgAtvQQ9dSK74ZkxzDygdfrpNndFz6CHtaV7eTu2ssY' AND "oauth_nonces".timestamp = 1255686472) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.1ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('xgAtvQQ9dSK74ZkxzDygdfrpNndFz6CHtaV7eTu2ssY', 1255686472, '2009-10-16 11:47:52', '2009-10-16 11:47:52')[0m
+  [4;36;1mOauthToken Load (0.5ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'Rtdv7lODxkN3Qt86747d') LIMIT 1[0m
+  [4;35;1mRequestToken Create (2.2ms)[0m   [0mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, 'Rtdv7lODxkN3Qt86747d', 'sRumQjMZvbPkV6AWoPFNOWlUUL71CJNhDZ9SrwlV', 'http://localhost:3001/oauth_consumers/cv/callback', NULL, NULL, NULL, '2009-10-16 11:47:52', '2009-10-16 11:47:52')[0m
+Completed in 247ms (View: 2, DB: 5) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 11:47:52) [GET]
+  Parameters: {"oauth_token"=>"Rtdv7lODxkN3Qt86747d", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.1ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 11:47:52', "updated_at" = '2009-10-16 11:47:52' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (0.8ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'Rtdv7lODxkN3Qt86747d') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 11:37:52') [0m
+Completed in 206ms (View: 54, DB: 3) | 200 OK [http://localhost/oauth/authorize?oauth_token=Rtdv7lODxkN3Qt86747d]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 11:47:53) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 11:47:58) [GET]
+  Parameters: {"oauth_token"=>"Rtdv7lODxkN3Qt86747d", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 11:47:58', "updated_at" = '2009-10-16 11:47:58' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (0.5ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'Rtdv7lODxkN3Qt86747d') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 11:37:58') [0m
+Completed in 226ms (View: 29, DB: 3) | 200 OK [http://localhost/oauth/authorize?oauth_token=Rtdv7lODxkN3Qt86747d]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 11:47:58) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 11:48:04) [GET]
+  Parameters: {"oauth_token"=>"Rtdv7lODxkN3Qt86747d", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.1ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 11:48:04', "updated_at" = '2009-10-16 11:48:04' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (1.0ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'Rtdv7lODxkN3Qt86747d') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 11:38:05') [0m
+Completed in 178ms (View: 33, DB: 4) | 200 OK [http://localhost/oauth/authorize?oauth_token=Rtdv7lODxkN3Qt86747d]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 11:48:16) [GET]
+  Parameters: {"oauth_token"=>"Rtdv7lODxkN3Qt86747d", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 11:48:16', "updated_at" = '2009-10-16 11:48:16' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (0.6ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'Rtdv7lODxkN3Qt86747d') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;36;1mClientApplication Load (0.6ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 11:38:16') [0m
+Completed in 237ms (View: 58, DB: 3) | 200 OK [http://localhost/oauth/authorize?oauth_token=Rtdv7lODxkN3Qt86747d]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 11:48:16) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 11:48:53) [GET]
+  Parameters: {"oauth_token"=>"Rtdv7lODxkN3Qt86747d", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.2ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 11:48:53', "updated_at" = '2009-10-16 11:48:53' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'Rtdv7lODxkN3Qt86747d') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 11:38:53') [0m
+Completed in 198ms (View: 55, DB: 4) | 200 OK [http://localhost/oauth/authorize?oauth_token=Rtdv7lODxkN3Qt86747d]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 11:48:53) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 11:48:55) [POST]
+  Parameters: {"authenticity_token"=>"EvdZpRJQNh358R2Fgaec7iN+UUvYDwjlRDNm3SbvhzQ=", "oauth_token"=>"Rtdv7lODxkN3Qt86747d", "commit"=>"No", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.9ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 11:48:55', "updated_at" = '2009-10-16 11:48:55' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (1.1ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'Rtdv7lODxkN3Qt86747d') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;36;1mRequestToken Update (1.4ms)[0m   [0;1mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 11:48:55', "updated_at" = '2009-10-16 11:48:55' WHERE "id" = 124[0m
+Rendering template within layouts/application
+Rendering oauth/authorize_failure
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 11:38:55') [0m
+Completed in 255ms (View: 7, DB: 6) | 200 OK [http://localhost/oauth/authorize]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 11:48:55) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 11:49:07) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = '8Qa7DuiOX94noB5CuG9KqxmvR3tcYcvsP6gBRjDuTE' AND "oauth_nonces".timestamp = 1255686547) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.9ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('8Qa7DuiOX94noB5CuG9KqxmvR3tcYcvsP6gBRjDuTE', 1255686547, '2009-10-16 11:49:07', '2009-10-16 11:49:07')[0m
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'WnmB4Mv1lRQUkLo8IcG0') LIMIT 1[0m
+  [4;36;1mRequestToken Create (2.2ms)[0m   [0;1mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, 'WnmB4Mv1lRQUkLo8IcG0', '8J4FjWJxsxxSfWIAM6PLqxOWYAEtHIWFPa8oqtZZ', 'http://localhost:3001/oauth_consumers/cv/callback', NULL, NULL, NULL, '2009-10-16 11:49:07', '2009-10-16 11:49:07')[0m
+Completed in 231ms (View: 2, DB: 5) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 11:49:07) [GET]
+  Parameters: {"oauth_token"=>"WnmB4Mv1lRQUkLo8IcG0", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.5ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 11:49:07', "updated_at" = '2009-10-16 11:49:07' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (0.9ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'WnmB4Mv1lRQUkLo8IcG0') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;36;1mClientApplication Load (0.7ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 11:39:07') [0m
+Completed in 192ms (View: 32, DB: 4) | 200 OK [http://localhost/oauth/authorize?oauth_token=WnmB4Mv1lRQUkLo8IcG0]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 11:49:07) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 11:49:09) [POST]
+  Parameters: {"authenticity_token"=>"EvdZpRJQNh358R2Fgaec7iN+UUvYDwjlRDNm3SbvhzQ=", "oauth_token"=>"WnmB4Mv1lRQUkLo8IcG0", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 11:49:09', "updated_at" = '2009-10-16 11:49:09' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'WnmB4Mv1lRQUkLo8IcG0') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'WnmB4Mv1lRQUkLo8IcG0' AND "oauth_tokens".id <> 125) LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.5ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mRequestToken Update (1.4ms)[0m   [0mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 11:49:09', "verifier" = 'FSEKzESKranQU231NWF4', "updated_at" = '2009-10-16 11:49:09' WHERE "id" = 125[0m
+Redirected to http://localhost:3001/oauth_consumers/cv/callback?oauth_token=WnmB4Mv1lRQUkLo8IcG0&oauth_verifier=FSEKzESKranQU231NWF4
+Completed in 254ms (DB: 5) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 11:49:09) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'WnmB4Mv1lRQUkLo8IcG0') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'wuzf37gXRDfAAYMywVp8UB6rQJUqZs4yqjYAJ1zZrY' AND "oauth_nonces".timestamp = 1255686549) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.0ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('wuzf37gXRDfAAYMywVp8UB6rQJUqZs4yqjYAJ1zZrY', 1255686549, '2009-10-16 11:49:09', '2009-10-16 11:49:09')[0m
+  [4;36;1mAccessToken Load (1.6ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;35;1mRequestToken Update (1.6ms)[0m   [0mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 11:49:10', "updated_at" = '2009-10-16 11:49:10' WHERE "id" = 125[0m
+Completed in 232ms (View: 1, DB: 5) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing OauthController#test_request (for 127.0.0.1 at 2009-10-16 11:49:50) [GET]
+  Parameters: {"controller"=>"oauth", "action"=>"test_request"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'AhS7gwKKI6B0T9UqAawONDPXYXnmvc7zQpyG74izI' AND "oauth_nonces".timestamp = 1255686590) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.0ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('AhS7gwKKI6B0T9UqAawONDPXYXnmvc7zQpyG74izI', 1255686590, '2009-10-16 11:49:50', '2009-10-16 11:49:50')[0m
+Completed in 148ms (View: 1, DB: 2) | 200 OK [http://localhost/oauth/test_request]
+
+
+Processing OauthController#test_request (for 127.0.0.1 at 2009-10-16 11:49:51) [GET]
+  Parameters: {"controller"=>"oauth", "action"=>"test_request"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'g3Fy2q1cjO4jrbly4EGQcqhXCfSlpMTEyMX0Sk9Y' AND "oauth_nonces".timestamp = 1255686591) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.0ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('g3Fy2q1cjO4jrbly4EGQcqhXCfSlpMTEyMX0Sk9Y', 1255686591, '2009-10-16 11:49:51', '2009-10-16 11:49:51')[0m
+Completed in 126ms (View: 1, DB: 2) | 200 OK [http://localhost/oauth/test_request]
+
+
+Processing OauthController#test_request (for 127.0.0.1 at 2009-10-16 11:49:53) [GET]
+  Parameters: {"controller"=>"oauth", "action"=>"test_request"}
+  [4;36;1mOauthToken Load (0.7ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = '5BQYDyWjqIZlNaOhtK45yE9uBYLk3zRPnElF4gSw' AND "oauth_nonces".timestamp = 1255686593) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.0ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('5BQYDyWjqIZlNaOhtK45yE9uBYLk3zRPnElF4gSw', 1255686593, '2009-10-16 11:49:53', '2009-10-16 11:49:53')[0m
+Completed in 183ms (View: 1, DB: 2) | 200 OK [http://localhost/oauth/test_request]
+
+
+Processing OauthController#test_request (for 127.0.0.1 at 2009-10-16 11:49:55) [GET]
+  Parameters: {"controller"=>"oauth", "action"=>"test_request"}
+  [4;36;1mOauthToken Load (0.5ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = '3W00rryOjcCLwsSehPkGqsbXv9ynCHKzCNllBOKfNag' AND "oauth_nonces".timestamp = 1255686595) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.1ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('3W00rryOjcCLwsSehPkGqsbXv9ynCHKzCNllBOKfNag', 1255686595, '2009-10-16 11:49:55', '2009-10-16 11:49:55')[0m
+Completed in 144ms (View: 1, DB: 2) | 200 OK [http://localhost/oauth/test_request]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20081103171327)
+Migrating to CreateSessions (20081106072031)
+Migrating to CreateOauthTables (20091015080342)
+Migrating to AddNameToUser (20091016095354)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mALTER TABLE "users" ADD "name" varchar(255)[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091016095354')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("client_applications")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_client_applications_on_key')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("oauth_nonces")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_oauth_nonces_on_nonce_and_timestamp')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("oauth_tokens")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_oauth_tokens_on_token')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("sessions")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_sessions_on_session_id')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_last_request_at')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_users_on_persistence_token')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-16 11:55:49) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 11:55:49', "updated_at" = '2009-10-16 11:55:49' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 11:45:49') [0m
+Completed in 126ms (View: 6, DB: 2) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 11:55:49) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-16 11:56:23) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 11:56:23', "updated_at" = '2009-10-16 11:56:23' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 11:46:23') [0m
+Completed in 124ms (View: 5, DB: 2) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 11:56:23) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-16 11:56:24) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.1ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 11:56:24', "updated_at" = '2009-10-16 11:56:24' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 11:46:24') [0m
+Completed in 150ms (View: 7, DB: 2) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 11:56:24) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-16 11:56:26) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 11:56:26', "updated_at" = '2009-10-16 11:56:26' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 11:46:26') [0m
+Completed in 129ms (View: 7, DB: 2) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 11:56:26) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-16 11:56:27) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.5ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 11:56:27', "updated_at" = '2009-10-16 11:56:27' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 11:46:27') [0m
+Completed in 217ms (View: 7, DB: 3) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 11:56:27) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 11:57:10) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.1ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 11:57:10', "updated_at" = '2009-10-16 11:57:10' WHERE "id" = 1[0m
+
+ActionView::MissingTemplate (Missing template users/show.erb in view path app/views):
+  haml (2.2.8) [v] lib/sass/plugin/rails.rb:19:in `process'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 11:57:47) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 11:57:47', "updated_at" = '2009-10-16 11:57:47' WHERE "id" = 1[0m
+Completed in 123ms (View: 3, DB: 1) | 200 OK [http://localhost/account.xml]
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 11:57:58) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 11:57:58', "updated_at" = '2009-10-16 11:57:58' WHERE "id" = 1[0m
+Completed in 131ms (View: 3, DB: 1) | 200 OK [http://localhost/account.xml]
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 11:58:16) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.1ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 11:58:16', "updated_at" = '2009-10-16 11:58:16' WHERE "id" = 1[0m
+Completed in 191ms (View: 3, DB: 2) | 200 OK [http://localhost/account.xml]
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 11:58:16) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.9ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 11:58:16', "updated_at" = '2009-10-16 11:58:16' WHERE "id" = 1[0m
+Completed in 147ms (View: 4, DB: 3) | 200 OK [http://localhost/account.xml]
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 11:59:20) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 11:59:20', "updated_at" = '2009-10-16 11:59:20' WHERE "id" = 1[0m
+Completed in 131ms (View: 2, DB: 1) | 200 OK [http://localhost/account.xml]
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 11:59:29) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.5ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 11:59:29', "updated_at" = '2009-10-16 11:59:29' WHERE "id" = 1[0m
+Completed in 157ms (View: 2, DB: 2) | 200 OK [http://localhost/account.xml]
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 11:59:36) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 11:59:36', "updated_at" = '2009-10-16 11:59:36' WHERE "id" = 1[0m
+Completed in 130ms (View: 2, DB: 1) | 200 OK [http://localhost/account.xml]
+  [4;36;1mSQL (1.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20081103171327)
+Migrating to CreateSessions (20081106072031)
+Migrating to CreateOauthTables (20091015080342)
+Migrating to AddNameToUser (20091016095354)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("client_applications")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_client_applications_on_key')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("oauth_nonces")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_oauth_nonces_on_nonce_and_timestamp')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("oauth_tokens")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_oauth_tokens_on_token')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("sessions")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_sessions_on_session_id')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_last_request_at')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_users_on_persistence_token')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 12:23:21) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.1ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 12:23:21', "updated_at" = '2009-10-16 12:23:21' WHERE "id" = 1[0m
+Completed in 128ms (View: 1, DB: 2) | 200 OK [http://localhost/account.xml]
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 12:23:23) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 12:23:23', "updated_at" = '2009-10-16 12:23:23' WHERE "id" = 1[0m
+Completed in 117ms (View: 2, DB: 1) | 200 OK [http://localhost/account.xml]
+
+
+Processing OauthController#test_request (for 127.0.0.1 at 2009-10-16 12:35:08) [GET]
+  Parameters: {"controller"=>"oauth", "action"=>"test_request"}
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'jx2Og38CgZCJFxdcOhzD6cab3ZdQJvLfWQuuUGNg' AND "oauth_nonces".timestamp = 1255689307) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.0ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('jx2Og38CgZCJFxdcOhzD6cab3ZdQJvLfWQuuUGNg', 1255689307, '2009-10-16 12:35:08', '2009-10-16 12:35:08')[0m
+Completed in 139ms (View: 1, DB: 2) | 200 OK [http://localhost/oauth/test_request]
+
+
+Processing OauthController#test_request (for 127.0.0.1 at 2009-10-16 12:35:15) [GET]
+  Parameters: {"controller"=>"oauth", "action"=>"test_request"}
+  [4;35;1mOauthToken Load (0.5ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.4ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'EeBK82Jt8QYVFReg0O38oo5Ms94ruc8MOKu6dq4Q4' AND "oauth_nonces".timestamp = 1255689315) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.1ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('EeBK82Jt8QYVFReg0O38oo5Ms94ruc8MOKu6dq4Q4', 1255689315, '2009-10-16 12:35:15', '2009-10-16 12:35:15')[0m
+Completed in 171ms (View: 1, DB: 2) | 200 OK [http://localhost/oauth/test_request]
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 12:36:41) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.1ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 12:36:41', "updated_at" = '2009-10-16 12:36:41' WHERE "id" = 1[0m
+Completed in 128ms (View: 1, DB: 2) | 200 OK [http://localhost/account.xml]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 12:37:39) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 12:37:39', "updated_at" = '2009-10-16 12:37:39' WHERE "id" = 1[0m
+Completed in 133ms (View: 2, DB: 1) | 200 OK [http://localhost/account.json]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-16 12:39:24) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.9ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 12:39:24', "updated_at" = '2009-10-16 12:39:24' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 12:29:24') [0m
+Completed in 194ms (View: 7, DB: 3) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 12:39:24) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#account (for 127.0.0.1 at 2009-10-16 12:39:34) [GET]
+  Parameters: {"controller"=>"oauth", "action"=>"account"}
+
+ActionController::UnknownAction (No action responded to account. Actions: access_token, authorize, capabilities, invalidate, request_token, revoke, and test_request):
+  haml (2.2.8) [v] lib/sass/plugin/rails.rb:19:in `process'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 12:39:39) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;36;1mOauthToken Load (0.5ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = '9kPaqI6QPuL6xxRKdamVTxWE3Wjd2krUqmKuMPpJ6A' AND "oauth_nonces".timestamp = 1255689579) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.0ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('9kPaqI6QPuL6xxRKdamVTxWE3Wjd2krUqmKuMPpJ6A', 1255689579, '2009-10-16 12:39:39', '2009-10-16 12:39:39')[0m
+Completed in 126ms (View: 1, DB: 2) | 200 OK [http://localhost/account.json]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 12:39:41) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'LSqOynOm4xZdjRewBEm0tH2OkdOMl9BcIZrFSajTc0' AND "oauth_nonces".timestamp = 1255689581) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.8ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('LSqOynOm4xZdjRewBEm0tH2OkdOMl9BcIZrFSajTc0', 1255689581, '2009-10-16 12:39:41', '2009-10-16 12:39:41')[0m
+Completed in 132ms (View: 1, DB: 3) | 200 OK [http://localhost/account.json]
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 12:40:40) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'fRc2DD6U3lssP9GS0lR6xjuyYxLQIdUCf9gkXObBdU' AND "oauth_nonces".timestamp = 1255689640) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.1ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('fRc2DD6U3lssP9GS0lR6xjuyYxLQIdUCf9gkXObBdU', 1255689640, '2009-10-16 12:40:40', '2009-10-16 12:40:40')[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.to_xml):
+  app/controllers/users_controller.rb:24:in `block (2 levels) in show'
+  app/controllers/users_controller.rb:22:in `show'
+  haml (2.2.8) [v] lib/sass/plugin/rails.rb:19:in `process'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (87.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 12:41:32) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+  [4;36;1mOauthToken Load (0.8ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'gsB4JyPL5Wcq8yXy6oR6Lql1dhTVoCxK6DJGJEMiQ' AND "oauth_nonces".timestamp = 1255689692) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.1ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('gsB4JyPL5Wcq8yXy6oR6Lql1dhTVoCxK6DJGJEMiQ', 1255689692, '2009-10-16 12:41:33', '2009-10-16 12:41:33')[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.to_xml):
+  app/controllers/users_controller.rb:24:in `block (2 levels) in show'
+  app/controllers/users_controller.rb:22:in `show'
+  haml (2.2.8) [v] lib/sass/plugin/rails.rb:19:in `process'
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (91.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-16 12:42:04) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show"}
+ERROROAuth::Signature::UnknownSignatureMethod
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (5.1ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 12:42:04', "updated_at" = '2009-10-16 12:42:04' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 12:32:04') [0m
+Completed in 222ms (View: 7, DB: 6) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 12:42:04) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 12:43:13) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+  [4;35;1mOauthToken Load (0.6ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = '3DcldirGPq8jXvaYAglJudOZy6XsTxUA3A1ppv2L4iI' AND "oauth_nonces".timestamp = 1255689793) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.8ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('3DcldirGPq8jXvaYAglJudOZy6XsTxUA3A1ppv2L4iI', 1255689793, '2009-10-16 12:43:13', '2009-10-16 12:43:13')[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 168ms (View: 2, DB: 4) | 200 OK [http://localhost/account.xml]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 12:43:17) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.4ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'laAlTxYV0tMcHNKMDoLoE9EAOEnS27NoEgDMyqx4' AND "oauth_nonces".timestamp = 1255689797) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.1ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('laAlTxYV0tMcHNKMDoLoE9EAOEnS27NoEgDMyqx4', 1255689797, '2009-10-16 12:43:17', '2009-10-16 12:43:17')[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 153ms (View: 1, DB: 3) | 200 OK [http://localhost/account.json]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 12:43:53) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;35;1mOauthToken Load (0.5ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'Of2pUJw47Iaz89Fj91wRkpEzoGIF7Y4R3aMi169Xx6w' AND "oauth_nonces".timestamp = 1255689833) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.1ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('Of2pUJw47Iaz89Fj91wRkpEzoGIF7Y4R3aMi169Xx6w', 1255689833, '2009-10-16 12:43:53', '2009-10-16 12:43:53')[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 165ms (View: 2, DB: 3) | 200 OK [http://localhost/account.json]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 12:45:26) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;36;1mOauthToken Load (0.8ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.4ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = '6WB3XE0SOajadYTG9AdRoaxbbufpMkOq9QgsZn2fwQ' AND "oauth_nonces".timestamp = 1255689926) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.0ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('6WB3XE0SOajadYTG9AdRoaxbbufpMkOq9QgsZn2fwQ', 1255689926, '2009-10-16 12:45:26', '2009-10-16 12:45:26')[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 232ms (View: 2, DB: 3) | 200 OK [http://localhost/account.json]
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 12:50:10) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = '9em9ffsaaasiDen44uhJlYZNESmNpsiTBdmPaQ6PlQ' AND "oauth_nonces".timestamp = 1255690210) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.8ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('9em9ffsaaasiDen44uhJlYZNESmNpsiTBdmPaQ6PlQ', 1255690210, '2009-10-16 12:50:10', '2009-10-16 12:50:10')[0m
+  [4;36;1mOauthToken Load (0.3ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'Yl1OzwjIX3woPsjyHavp') LIMIT 1[0m
+  [4;35;1mRequestToken Create (1.6ms)[0m   [0mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, 'Yl1OzwjIX3woPsjyHavp', 'w4T2Lbc1vBEsKHQTP9SbvkYme79cRJK7dZOPnF2k', 'http://localhost:3001/oauth_consumers/cv/callback', NULL, NULL, NULL, '2009-10-16 12:50:10', '2009-10-16 12:50:10')[0m
+Completed in 215ms (View: 2, DB: 4) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:50:10) [GET]
+  Parameters: {"oauth_token"=>"Yl1OzwjIX3woPsjyHavp", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 12:50:10', "updated_at" = '2009-10-16 12:50:10' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (1.0ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'Yl1OzwjIX3woPsjyHavp') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 12:40:10') [0m
+Completed in 170ms (View: 35, DB: 4) | 200 OK [http://localhost/oauth/authorize?oauth_token=Yl1OzwjIX3woPsjyHavp]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 12:50:10) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:50:12) [POST]
+  Parameters: {"authenticity_token"=>"EvdZpRJQNh358R2Fgaec7iN+UUvYDwjlRDNm3SbvhzQ=", "oauth_token"=>"Yl1OzwjIX3woPsjyHavp", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 12:50:12', "updated_at" = '2009-10-16 12:50:12' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (1.6ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'Yl1OzwjIX3woPsjyHavp') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'Yl1OzwjIX3woPsjyHavp' AND "oauth_tokens".id <> 126) LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.7ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mRequestToken Update (1.4ms)[0m   [0;1mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 12:50:12', "verifier" = 'pt4V4NEYqT52hcXM9PA', "updated_at" = '2009-10-16 12:50:12' WHERE "id" = 126[0m
+Redirected to http://localhost:3001/oauth_consumers/cv/callback?oauth_token=Yl1OzwjIX3woPsjyHavp&oauth_verifier=pt4V4NEYqT52hcXM9PA
+Completed in 267ms (DB: 6) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 12:50:12) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'Yl1OzwjIX3woPsjyHavp') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'tAH95DWk9BUg10oE2MvjfP6vGj3FrlFeG3H3G6tMcMQ' AND "oauth_nonces".timestamp = 1255690212) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.1ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('tAH95DWk9BUg10oE2MvjfP6vGj3FrlFeG3H3G6tMcMQ', 1255690212, '2009-10-16 12:50:12', '2009-10-16 12:50:12')[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccessToken Load (0.8ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;35;1mRequestToken Update (1.2ms)[0m   [0mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 12:50:12', "updated_at" = '2009-10-16 12:50:12' WHERE "id" = 126[0m
+Completed in 299ms (View: 2, DB: 5) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 12:50:23) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;36;1mOauthToken Load (0.7ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'Yl1OzwjIX3woPsjyHavp') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'y0znVtCjPKGToWz9eK4EwkZsiBYkrkajZAA8tinFZVg' AND "oauth_nonces".timestamp = 1255690223) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.1ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('y0znVtCjPKGToWz9eK4EwkZsiBYkrkajZAA8tinFZVg', 1255690223, '2009-10-16 12:50:23', '2009-10-16 12:50:23')[0m
+  [4;36;1mOauthToken Load (0.8ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'Yl1OzwjIX3woPsjyHavp') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.5ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.4ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'y0znVtCjPKGToWz9eK4EwkZsiBYkrkajZAA8tinFZVg' AND "oauth_nonces".timestamp = 1255690223) LIMIT 1[0m
+Completed in 189ms (View: 1, DB: 4) | 401 Unauthorized [http://localhost/oauth/access_token]
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 12:50:42) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;35;1mClientApplication Load (0.4ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = '0vcXTFxN3FWinjlL5BAPB4zeaWo0gcR2qDQ7GBrvR74' AND "oauth_nonces".timestamp = 1255690242) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.9ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('0vcXTFxN3FWinjlL5BAPB4zeaWo0gcR2qDQ7GBrvR74', 1255690242, '2009-10-16 12:50:42', '2009-10-16 12:50:42')[0m
+  [4;36;1mOauthToken Load (0.5ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'JRRFmsUdpKEQEp9pvFHx') LIMIT 1[0m
+  [4;35;1mRequestToken Create (2.2ms)[0m   [0mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, 'JRRFmsUdpKEQEp9pvFHx', '1IR5vaqOa7XQ7oycEi2VlVYmnTU0AYiVTv3th5mw', 'http://localhost:3001/oauth_consumers/cv/callback', NULL, NULL, NULL, '2009-10-16 12:50:42', '2009-10-16 12:50:42')[0m
+Completed in 233ms (View: 2, DB: 5) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:50:43) [GET]
+  Parameters: {"oauth_token"=>"JRRFmsUdpKEQEp9pvFHx", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 12:50:43', "updated_at" = '2009-10-16 12:50:43' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'JRRFmsUdpKEQEp9pvFHx') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 12:40:43') [0m
+Completed in 265ms (View: 103, DB: 5) | 200 OK [http://localhost/oauth/authorize?oauth_token=JRRFmsUdpKEQEp9pvFHx]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 12:50:43) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:50:44) [POST]
+  Parameters: {"authenticity_token"=>"EvdZpRJQNh358R2Fgaec7iN+UUvYDwjlRDNm3SbvhzQ=", "oauth_token"=>"JRRFmsUdpKEQEp9pvFHx", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 12:50:44', "updated_at" = '2009-10-16 12:50:44' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (0.9ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'JRRFmsUdpKEQEp9pvFHx') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'JRRFmsUdpKEQEp9pvFHx' AND "oauth_tokens".id <> 127) LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.5ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mRequestToken Update (1.4ms)[0m   [0;1mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 12:50:44', "verifier" = 'hq5YtCfiHAcwJzfCwgVk', "updated_at" = '2009-10-16 12:50:44' WHERE "id" = 127[0m
+Redirected to http://localhost:3001/oauth_consumers/cv/callback?oauth_token=JRRFmsUdpKEQEp9pvFHx&oauth_verifier=hq5YtCfiHAcwJzfCwgVk
+Completed in 329ms (DB: 5) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 12:50:45) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;35;1mOauthToken Load (0.7ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'JRRFmsUdpKEQEp9pvFHx') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.6ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'vyu4MNSwpQVoGcqTZUdn1Zc3drR0kDI3JDbxlPqDc' AND "oauth_nonces".timestamp = 1255690245) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.1ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('vyu4MNSwpQVoGcqTZUdn1Zc3drR0kDI3JDbxlPqDc', 1255690245, '2009-10-16 12:50:45', '2009-10-16 12:50:45')[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccessToken Load (0.8ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;35;1mRequestToken Update (1.3ms)[0m   [0mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 12:50:45', "updated_at" = '2009-10-16 12:50:45' WHERE "id" = 127[0m
+Completed in 293ms (View: 1, DB: 6) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 12:51:16) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;36;1mClientApplication Load (0.4ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'Z0YH2a7i3YWEmlnMai9mLxEaU02OP95LoWd6KMCri3o' AND "oauth_nonces".timestamp = 1255690276) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.0ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('Z0YH2a7i3YWEmlnMai9mLxEaU02OP95LoWd6KMCri3o', 1255690276, '2009-10-16 12:51:16', '2009-10-16 12:51:16')[0m
+  [4;35;1mOauthToken Load (0.5ms)[0m   [0mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '5ajqPdaobhrZmhbWq87u') LIMIT 1[0m
+  [4;36;1mRequestToken Create (2.2ms)[0m   [0;1mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, '5ajqPdaobhrZmhbWq87u', 'XcaEuIXBBeSC4rTD5frDx1LZ5fWPIM5E9agL7NJo', 'http://localhost:3001/oauth_consumers/cv/callback', NULL, NULL, NULL, '2009-10-16 12:51:16', '2009-10-16 12:51:16')[0m
+Completed in 271ms (View: 2, DB: 4) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:51:16) [GET]
+  Parameters: {"oauth_token"=>"5ajqPdaobhrZmhbWq87u", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 12:51:16', "updated_at" = '2009-10-16 12:51:16' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (0.7ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '5ajqPdaobhrZmhbWq87u') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;36;1mClientApplication Load (0.5ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 12:41:17') [0m
+Completed in 231ms (View: 95, DB: 3) | 200 OK [http://localhost/oauth/authorize?oauth_token=5ajqPdaobhrZmhbWq87u]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 12:51:17) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:51:18) [POST]
+  Parameters: {"authenticity_token"=>"EvdZpRJQNh358R2Fgaec7iN+UUvYDwjlRDNm3SbvhzQ=", "oauth_token"=>"5ajqPdaobhrZmhbWq87u", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (2.3ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 12:51:18', "updated_at" = '2009-10-16 12:51:18' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '5ajqPdaobhrZmhbWq87u') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '5ajqPdaobhrZmhbWq87u' AND "oauth_tokens".id <> 128) LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.6ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mRequestToken Update (1.3ms)[0m   [0mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 12:51:18', "verifier" = 'p0H4hhat6PcbFcAvXM2M', "updated_at" = '2009-10-16 12:51:18' WHERE "id" = 128[0m
+Redirected to http://localhost:3001/oauth_consumers/cv/callback?oauth_token=5ajqPdaobhrZmhbWq87u&oauth_verifier=p0H4hhat6PcbFcAvXM2M
+Completed in 302ms (DB: 6) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 12:51:18) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;36;1mOauthToken Load (0.7ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '5ajqPdaobhrZmhbWq87u') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.3ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'za6QyKQOr6Tdq9Q4mxYej7NQ7lBxpiJCaHB3yQguO8' AND "oauth_nonces".timestamp = 1255690278) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (2.1ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('za6QyKQOr6Tdq9Q4mxYej7NQ7lBxpiJCaHB3yQguO8', 1255690278, '2009-10-16 12:51:18', '2009-10-16 12:51:18')[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mAccessToken Load (0.9ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;36;1mRequestToken Update (1.4ms)[0m   [0;1mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 12:51:19', "updated_at" = '2009-10-16 12:51:19' WHERE "id" = 128[0m
+Completed in 297ms (View: 1, DB: 7) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 12:51:19) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = '5zekBQlEDf4hoS07q88LWisz0iwf7MHt6lo0OBEZ0' AND "oauth_nonces".timestamp = 1255690279) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.3ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('5zekBQlEDf4hoS07q88LWisz0iwf7MHt6lo0OBEZ0', 1255690279, '2009-10-16 12:51:19', '2009-10-16 12:51:19')[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 171ms (View: 2, DB: 3) | 200 OK [http://localhost/account.json]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 12:51:47) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '5ajqPdaobhrZmhbWq87u') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'fzhRtk5JRf4skbfhJQPkp9nHiMLQGn00SIlMkhyUnk' AND "oauth_nonces".timestamp = 1255690307) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.0ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('fzhRtk5JRf4skbfhJQPkp9nHiMLQGn00SIlMkhyUnk', 1255690307, '2009-10-16 12:51:47', '2009-10-16 12:51:47')[0m
+  [4;36;1mOauthToken Load (0.6ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '5ajqPdaobhrZmhbWq87u') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.4ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.4ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'fzhRtk5JRf4skbfhJQPkp9nHiMLQGn00SIlMkhyUnk' AND "oauth_nonces".timestamp = 1255690307) LIMIT 1[0m
+Completed in 142ms (View: 1, DB: 3) | 401 Unauthorized [http://localhost/oauth/access_token]
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 12:51:53) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;35;1mClientApplication Load (1.7ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'FwkVHMHf9lkRmqLabIrHRJHDSM4VH1StKo046sp6LM' AND "oauth_nonces".timestamp = 1255690313) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.0ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('FwkVHMHf9lkRmqLabIrHRJHDSM4VH1StKo046sp6LM', 1255690313, '2009-10-16 12:51:53', '2009-10-16 12:51:53')[0m
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'B5TPVL9CWzq1A0QD6Klh') LIMIT 1[0m
+  [4;35;1mRequestToken Create (1.7ms)[0m   [0mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, 'B5TPVL9CWzq1A0QD6Klh', 'Euq9cjqcFeuLTpfu7652C6IzKNunsiowR3S5SqUj', 'http://localhost:3001/oauth_consumers/cv/callback', NULL, NULL, NULL, '2009-10-16 12:51:53', '2009-10-16 12:51:53')[0m
+Completed in 222ms (View: 1, DB: 5) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:51:53) [GET]
+  Parameters: {"oauth_token"=>"B5TPVL9CWzq1A0QD6Klh", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (2.1ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 12:51:53', "updated_at" = '2009-10-16 12:51:53' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'B5TPVL9CWzq1A0QD6Klh') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 12:41:54') [0m
+Completed in 248ms (View: 33, DB: 5) | 200 OK [http://localhost/oauth/authorize?oauth_token=B5TPVL9CWzq1A0QD6Klh]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 12:51:54) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:51:55) [POST]
+  Parameters: {"authenticity_token"=>"EvdZpRJQNh358R2Fgaec7iN+UUvYDwjlRDNm3SbvhzQ=", "oauth_token"=>"B5TPVL9CWzq1A0QD6Klh", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.1ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 12:51:55', "updated_at" = '2009-10-16 12:51:55' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (0.9ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'B5TPVL9CWzq1A0QD6Klh') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'B5TPVL9CWzq1A0QD6Klh' AND "oauth_tokens".id <> 129) LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.5ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mRequestToken Update (1.4ms)[0m   [0;1mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 12:51:55', "verifier" = 'sMYn7nDCtjgkHrKqoCDQ', "updated_at" = '2009-10-16 12:51:55' WHERE "id" = 129[0m
+Redirected to http://localhost:3001/oauth_consumers/cv/callback?oauth_token=B5TPVL9CWzq1A0QD6Klh&oauth_verifier=sMYn7nDCtjgkHrKqoCDQ
+Completed in 247ms (DB: 5) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 12:51:56) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;35;1mOauthToken Load (0.7ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'B5TPVL9CWzq1A0QD6Klh') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.6ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.4ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'gcaTbOHE1TMbgeWIFb3T1kFko6pZw40dMJt2TkPMY' AND "oauth_nonces".timestamp = 1255690315) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (2.9ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('gcaTbOHE1TMbgeWIFb3T1kFko6pZw40dMJt2TkPMY', 1255690315, '2009-10-16 12:51:56', '2009-10-16 12:51:56')[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccessToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;35;1mRequestToken Update (1.3ms)[0m   [0mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 12:51:56', "updated_at" = '2009-10-16 12:51:56' WHERE "id" = 129[0m
+Completed in 293ms (View: 1, DB: 8) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 12:51:56) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;36;1mOauthToken Load (0.8ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'eWemYMuUSgXwPqmjVh4KvMyRRDDMuWUosurL4bNvBKQ' AND "oauth_nonces".timestamp = 1255690316) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.8ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('eWemYMuUSgXwPqmjVh4KvMyRRDDMuWUosurL4bNvBKQ', 1255690316, '2009-10-16 12:51:56', '2009-10-16 12:51:56')[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 259ms (View: 2, DB: 4) | 200 OK [http://localhost/account.json]
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 12:52:06) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;35;1mClientApplication Load (0.4ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'pbBpKdOB5SQqMEv9Mu0CHJjpAkAEQInfczj29d4' AND "oauth_nonces".timestamp = 1255690326) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.9ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('pbBpKdOB5SQqMEv9Mu0CHJjpAkAEQInfczj29d4', 1255690326, '2009-10-16 12:52:06', '2009-10-16 12:52:06')[0m
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '5GHvyyLstbVkfUhyAQI4') LIMIT 1[0m
+  [4;35;1mRequestToken Create (2.2ms)[0m   [0mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, '5GHvyyLstbVkfUhyAQI4', 'bwDqZktlDTGVnBbcvaj5DQ8gpAYXR1e6lIjrBdLg', 'http://localhost:3001/oauth_consumers/cv/callback', NULL, NULL, NULL, '2009-10-16 12:52:06', '2009-10-16 12:52:06')[0m
+Completed in 230ms (View: 2, DB: 5) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:52:06) [GET]
+  Parameters: {"oauth_token"=>"5GHvyyLstbVkfUhyAQI4", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 12:52:06', "updated_at" = '2009-10-16 12:52:06' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '5GHvyyLstbVkfUhyAQI4') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 12:42:07') [0m
+Completed in 178ms (View: 34, DB: 3) | 200 OK [http://localhost/oauth/authorize?oauth_token=5GHvyyLstbVkfUhyAQI4]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 12:52:07) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:52:09) [POST]
+  Parameters: {"authenticity_token"=>"EvdZpRJQNh358R2Fgaec7iN+UUvYDwjlRDNm3SbvhzQ=", "oauth_token"=>"5GHvyyLstbVkfUhyAQI4", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 12:52:09', "updated_at" = '2009-10-16 12:52:09' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (0.7ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '5GHvyyLstbVkfUhyAQI4') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;36;1mOauthToken Load (0.3ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '5GHvyyLstbVkfUhyAQI4' AND "oauth_tokens".id <> 130) LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mRequestToken Update (1.3ms)[0m   [0;1mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 12:52:09', "verifier" = 'whLPWxOH0Z93XHeJwCOr', "updated_at" = '2009-10-16 12:52:09' WHERE "id" = 130[0m
+Redirected to http://localhost:3001/oauth_consumers/cv/callback?oauth_token=5GHvyyLstbVkfUhyAQI4&oauth_verifier=whLPWxOH0Z93XHeJwCOr
+Completed in 243ms (DB: 4) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 12:52:10) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;35;1mOauthToken Load (0.5ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '5GHvyyLstbVkfUhyAQI4') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.4ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'OJF5U0Fif1QZAvSsbVNHb0AuTobVR3eBHvBYb0Bjkp8' AND "oauth_nonces".timestamp = 1255690329) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.0ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('OJF5U0Fif1QZAvSsbVNHb0AuTobVR3eBHvBYb0Bjkp8', 1255690329, '2009-10-16 12:52:10', '2009-10-16 12:52:10')[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccessToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;35;1mRequestToken Update (1.2ms)[0m   [0mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 12:52:10', "updated_at" = '2009-10-16 12:52:10' WHERE "id" = 130[0m
+Completed in 305ms (View: 2, DB: 5) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 12:52:10) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'NUfyzdNH72Hvi4MjhgbRihnH6VZZJCM0ynbdFcC0' AND "oauth_nonces".timestamp = 1255690330) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.0ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('NUfyzdNH72Hvi4MjhgbRihnH6VZZJCM0ynbdFcC0', 1255690330, '2009-10-16 12:52:10', '2009-10-16 12:52:10')[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 156ms (View: 2, DB: 3) | 200 OK [http://localhost/account.json]
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 12:52:17) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;35;1mClientApplication Load (0.7ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'uGaD0qv4m7fPzNRrIJbXun4RfzNiQfyhdtuUPYI6xM' AND "oauth_nonces".timestamp = 1255690336) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.1ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('uGaD0qv4m7fPzNRrIJbXun4RfzNiQfyhdtuUPYI6xM', 1255690336, '2009-10-16 12:52:17', '2009-10-16 12:52:17')[0m
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'kI66BnBGY3FMpheS9eSw') LIMIT 1[0m
+  [4;35;1mRequestToken Create (2.2ms)[0m   [0mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, 'kI66BnBGY3FMpheS9eSw', 'lQqTX8jF7KmP031s9mQprzuDEt01fIW2aqvx2USV', 'http://localhost:3001/oauth_consumers/cv/callback', NULL, NULL, NULL, '2009-10-16 12:52:17', '2009-10-16 12:52:17')[0m
+Completed in 257ms (View: 2, DB: 5) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:52:17) [GET]
+  Parameters: {"oauth_token"=>"kI66BnBGY3FMpheS9eSw", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 12:52:17', "updated_at" = '2009-10-16 12:52:17' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (0.8ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'kI66BnBGY3FMpheS9eSw') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;35;1mClientApplication Load (0.4ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 12:42:17') [0m
+Completed in 158ms (View: 23, DB: 3) | 200 OK [http://localhost/oauth/authorize?oauth_token=kI66BnBGY3FMpheS9eSw]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 12:52:17) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:52:19) [POST]
+  Parameters: {"authenticity_token"=>"EvdZpRJQNh358R2Fgaec7iN+UUvYDwjlRDNm3SbvhzQ=", "oauth_token"=>"kI66BnBGY3FMpheS9eSw", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.1ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 12:52:19', "updated_at" = '2009-10-16 12:52:19' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (0.6ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'kI66BnBGY3FMpheS9eSw') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'kI66BnBGY3FMpheS9eSw' AND "oauth_tokens".id <> 131) LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mRequestToken Update (1.3ms)[0m   [0;1mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 12:52:19', "verifier" = 'o5f1cbha5OkbqHvfUSJW', "updated_at" = '2009-10-16 12:52:19' WHERE "id" = 131[0m
+Redirected to http://localhost:3001/oauth_consumers/cv/callback?oauth_token=kI66BnBGY3FMpheS9eSw&oauth_verifier=o5f1cbha5OkbqHvfUSJW
+Completed in 239ms (DB: 4) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 12:52:19) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'kI66BnBGY3FMpheS9eSw') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'PiD7zVq1TJ4IvpK4qIj5CKz5Vhsf00nsez6szO8eM3M' AND "oauth_nonces".timestamp = 1255690339) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.0ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('PiD7zVq1TJ4IvpK4qIj5CKz5Vhsf00nsez6szO8eM3M', 1255690339, '2009-10-16 12:52:19', '2009-10-16 12:52:19')[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccessToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;35;1mRequestToken Update (1.2ms)[0m   [0mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 12:52:19', "updated_at" = '2009-10-16 12:52:19' WHERE "id" = 131[0m
+Completed in 259ms (View: 1, DB: 5) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 12:52:20) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = '0VP12YX6xfEMyX5UNMPO9PAiez89HBsPboLNvgRHso' AND "oauth_nonces".timestamp = 1255690339) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.1ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('0VP12YX6xfEMyX5UNMPO9PAiez89HBsPboLNvgRHso', 1255690339, '2009-10-16 12:52:20', '2009-10-16 12:52:20')[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 212ms (View: 2, DB: 3) | 200 OK [http://localhost/account.json]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20081103171327)
+Migrating to CreateSessions (20081106072031)
+Migrating to CreateOauthTables (20091015080342)
+Migrating to AddNameToUser (20091016095354)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("client_applications")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_client_applications_on_key')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("oauth_nonces")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_oauth_nonces_on_nonce_and_timestamp')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("oauth_tokens")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_oauth_tokens_on_token')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("sessions")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_sessions_on_session_id')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_last_request_at')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_users_on_persistence_token')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 12:54:20) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;35;1mClientApplication Load (0.4ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'PrWoZ0P9KJgGGBljzOrNWPOrL826POAssYGnm2j17h8' AND "oauth_nonces".timestamp = 1255690460) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.1ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('PrWoZ0P9KJgGGBljzOrNWPOrL826POAssYGnm2j17h8', 1255690460, '2009-10-16 12:54:20', '2009-10-16 12:54:20')[0m
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '7I9K5uxBuDMwkiG2Z32g') LIMIT 1[0m
+  [4;35;1mRequestToken Create (2.3ms)[0m   [0mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, '7I9K5uxBuDMwkiG2Z32g', 'cnTgEFayljKsklJmGq9ckhFpMbCM6iQnLnhcsznZ', 'http://localhost:3001/oauth_consumers/cv/callback', NULL, NULL, NULL, '2009-10-16 12:54:21', '2009-10-16 12:54:21')[0m
+Completed in 236ms (View: 2, DB: 4) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:54:21) [GET]
+  Parameters: {"oauth_token"=>"7I9K5uxBuDMwkiG2Z32g", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 12:54:21', "updated_at" = '2009-10-16 12:54:21' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '7I9K5uxBuDMwkiG2Z32g') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 12:44:21') [0m
+Completed in 237ms (View: 33, DB: 4) | 200 OK [http://localhost/oauth/authorize?oauth_token=7I9K5uxBuDMwkiG2Z32g]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 12:54:21) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:54:22) [POST]
+  Parameters: {"authenticity_token"=>"EvdZpRJQNh358R2Fgaec7iN+UUvYDwjlRDNm3SbvhzQ=", "oauth_token"=>"7I9K5uxBuDMwkiG2Z32g", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 12:54:23', "updated_at" = '2009-10-16 12:54:23' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (0.7ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '7I9K5uxBuDMwkiG2Z32g') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;36;1mOauthToken Load (0.3ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '7I9K5uxBuDMwkiG2Z32g' AND "oauth_tokens".id <> 132) LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mRequestToken Update (1.3ms)[0m   [0;1mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 12:54:23', "verifier" = 'PEdhWbocZoteV78MLc9X', "updated_at" = '2009-10-16 12:54:23' WHERE "id" = 132[0m
+Redirected to http://localhost:3001/oauth_consumers/cv/callback?oauth_token=7I9K5uxBuDMwkiG2Z32g&oauth_verifier=PEdhWbocZoteV78MLc9X
+Completed in 308ms (DB: 4) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 12:54:23) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;35;1mOauthToken Load (0.6ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '7I9K5uxBuDMwkiG2Z32g') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'mDITANokL6qdvfhZMZaL22lDOUzbrG6mb9511AjHVBo' AND "oauth_nonces".timestamp = 1255690463) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.0ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('mDITANokL6qdvfhZMZaL22lDOUzbrG6mb9511AjHVBo', 1255690463, '2009-10-16 12:54:23', '2009-10-16 12:54:23')[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccessToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;35;1mRequestToken Update (1.3ms)[0m   [0mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 12:54:23', "updated_at" = '2009-10-16 12:54:23' WHERE "id" = 132[0m
+Completed in 289ms (View: 1, DB: 5) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 12:54:23) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'tTEJ7qeM1sVrmNGmYlnkoZXLAk4La43J43GyZCQ10Ls' AND "oauth_nonces".timestamp = 1255690463) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.1ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('tTEJ7qeM1sVrmNGmYlnkoZXLAk4La43J43GyZCQ10Ls', 1255690463, '2009-10-16 12:54:23', '2009-10-16 12:54:23')[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 152ms (View: 2, DB: 3) | 200 OK [http://localhost/account.json]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" [0m
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 12:55:41) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;35;1mClientApplication Load (0.4ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'jQk8idf6SyiHMtvsmVKTLtZEntJpTdjX8m7bzrnG9YA' AND "oauth_nonces".timestamp = 1255690541) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.1ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('jQk8idf6SyiHMtvsmVKTLtZEntJpTdjX8m7bzrnG9YA', 1255690541, '2009-10-16 12:55:41', '2009-10-16 12:55:41')[0m
+  [4;36;1mOauthToken Load (0.7ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '4sBhQMqk8s1lAh4SmaVv') LIMIT 1[0m
+  [4;35;1mRequestToken Create (2.1ms)[0m   [0mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, '4sBhQMqk8s1lAh4SmaVv', 'XaWYBDiz8rSlJeBIXMmQ98BV6qCg48Z7RFObqFI', 'http://localhost:3001/oauth_consumers/cv/callback', NULL, NULL, NULL, '2009-10-16 12:55:41', '2009-10-16 12:55:41')[0m
+Completed in 300ms (View: 2, DB: 5) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:55:41) [GET]
+  Parameters: {"oauth_token"=>"4sBhQMqk8s1lAh4SmaVv", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 12:55:41', "updated_at" = '2009-10-16 12:55:41' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '4sBhQMqk8s1lAh4SmaVv') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 12:45:41') [0m
+Completed in 198ms (View: 32, DB: 5) | 200 OK [http://localhost/oauth/authorize?oauth_token=4sBhQMqk8s1lAh4SmaVv]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 12:55:41) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:55:43) [POST]
+  Parameters: {"authenticity_token"=>"EvdZpRJQNh358R2Fgaec7iN+UUvYDwjlRDNm3SbvhzQ=", "oauth_token"=>"4sBhQMqk8s1lAh4SmaVv", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 12:55:43', "updated_at" = '2009-10-16 12:55:43' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (0.9ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '4sBhQMqk8s1lAh4SmaVv') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '4sBhQMqk8s1lAh4SmaVv' AND "oauth_tokens".id <> 133) LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.5ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mRequestToken Update (1.3ms)[0m   [0;1mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 12:55:43', "verifier" = 'c5ljAMTmHJkp6q3igAwi', "updated_at" = '2009-10-16 12:55:43' WHERE "id" = 133[0m
+Redirected to http://localhost:3001/oauth_consumers/cv/callback?oauth_token=4sBhQMqk8s1lAh4SmaVv&oauth_verifier=c5ljAMTmHJkp6q3igAwi
+Completed in 258ms (DB: 5) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 12:55:43) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '4sBhQMqk8s1lAh4SmaVv') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'rC8c1IZtiK1gpf19dbqSxVIdtEwIMLA3rNBs8pguEoM' AND "oauth_nonces".timestamp = 1255690543) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.8ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('rC8c1IZtiK1gpf19dbqSxVIdtEwIMLA3rNBs8pguEoM', 1255690543, '2009-10-16 12:55:43', '2009-10-16 12:55:43')[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccessToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;35;1mRequestToken Update (1.3ms)[0m   [0mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 12:55:43', "updated_at" = '2009-10-16 12:55:43' WHERE "id" = 133[0m
+Completed in 262ms (View: 1, DB: 6) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 12:55:44) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;36;1mOauthToken Load (0.7ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (1.2ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'moqiwouIQkxM3MfRHOqIWib0Rfgs8Yww7TIdrvBE1A' AND "oauth_nonces".timestamp = 1255690544) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.0ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('moqiwouIQkxM3MfRHOqIWib0Rfgs8Yww7TIdrvBE1A', 1255690544, '2009-10-16 12:55:44', '2009-10-16 12:55:44')[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 291ms (View: 2, DB: 4) | 200 OK [http://localhost/account.json]
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 12:56:03) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;35;1mClientApplication Load (0.4ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'CETSc039fgxwKGmUfD1MfVVwAbTSql7tWYzOc5Gc' AND "oauth_nonces".timestamp = 1255690562) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.1ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('CETSc039fgxwKGmUfD1MfVVwAbTSql7tWYzOc5Gc', 1255690562, '2009-10-16 12:56:03', '2009-10-16 12:56:03')[0m
+  [4;36;1mOauthToken Load (0.5ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qZJkBg08eYG7u6mNETHe') LIMIT 1[0m
+  [4;35;1mRequestToken Create (2.2ms)[0m   [0mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, 'qZJkBg08eYG7u6mNETHe', '9EW3qMcq6Y03qHQavowYnU9EwHpuYcVZB5CRYJXc', 'http://localhost:3001/oauth_consumers/cv/callback', NULL, NULL, NULL, '2009-10-16 12:56:03', '2009-10-16 12:56:03')[0m
+Completed in 238ms (View: 2, DB: 4) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:56:03) [GET]
+  Parameters: {"oauth_token"=>"qZJkBg08eYG7u6mNETHe", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 12:56:03', "updated_at" = '2009-10-16 12:56:03' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (0.6ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qZJkBg08eYG7u6mNETHe') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;35;1mClientApplication Load (2.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 12:46:03') [0m
+Completed in 164ms (View: 31, DB: 5) | 200 OK [http://localhost/oauth/authorize?oauth_token=qZJkBg08eYG7u6mNETHe]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 12:56:03) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 12:56:05) [POST]
+  Parameters: {"authenticity_token"=>"EvdZpRJQNh358R2Fgaec7iN+UUvYDwjlRDNm3SbvhzQ=", "oauth_token"=>"qZJkBg08eYG7u6mNETHe", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.1ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 12:56:05', "updated_at" = '2009-10-16 12:56:05' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (1.0ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qZJkBg08eYG7u6mNETHe') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qZJkBg08eYG7u6mNETHe' AND "oauth_tokens".id <> 134) LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mRequestToken Update (1.3ms)[0m   [0;1mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 12:56:05', "verifier" = 'QWihvYn9rNN1rMn5GsoT', "updated_at" = '2009-10-16 12:56:05' WHERE "id" = 134[0m
+Redirected to http://localhost:3001/oauth_consumers/cv/callback?oauth_token=qZJkBg08eYG7u6mNETHe&oauth_verifier=QWihvYn9rNN1rMn5GsoT
+Completed in 248ms (DB: 5) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 12:56:05) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qZJkBg08eYG7u6mNETHe') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = '5oebycrUYStiPyHvY1xbNIb4BqSM3NmvyKjZ798Vm0' AND "oauth_nonces".timestamp = 1255690565) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.0ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('5oebycrUYStiPyHvY1xbNIb4BqSM3NmvyKjZ798Vm0', 1255690565, '2009-10-16 12:56:05', '2009-10-16 12:56:05')[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccessToken Load (0.8ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;35;1mRequestToken Update (1.2ms)[0m   [0mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 12:56:05', "updated_at" = '2009-10-16 12:56:05' WHERE "id" = 134[0m
+Completed in 326ms (View: 2, DB: 5) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 12:56:05) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;36;1mOauthToken Load (0.5ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.4ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = '0DwUtxaSEfhrtrZCqLg0BcNjqqftIhPMb3dQeqNVIo4' AND "oauth_nonces".timestamp = 1255690565) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.8ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('0DwUtxaSEfhrtrZCqLg0BcNjqqftIhPMb3dQeqNVIo4', 1255690565, '2009-10-16 12:56:05', '2009-10-16 12:56:05')[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 137ms (View: 1, DB: 4) | 200 OK [http://localhost/account.json]
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 13:14:37) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;35;1mClientApplication Load (0.4ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'l8GR00o76Z9pgc1CUnd7f4bXVtlT2fWQPW0G38vBP8' AND "oauth_nonces".timestamp = 1255691677) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.8ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('l8GR00o76Z9pgc1CUnd7f4bXVtlT2fWQPW0G38vBP8', 1255691677, '2009-10-16 13:14:37', '2009-10-16 13:14:37')[0m
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'QoB46BT0rOngtWVtPPRe') LIMIT 1[0m
+  [4;35;1mRequestToken Create (2.2ms)[0m   [0mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, 'QoB46BT0rOngtWVtPPRe', 'Fg1AV7Y0EIBzoK2JhgDr49CzL2NgXhuncOUYFOrW', 'http://localhost:3001/oauth_consumers/callback', NULL, NULL, NULL, '2009-10-16 13:14:37', '2009-10-16 13:14:37')[0m
+Completed in 233ms (View: 2, DB: 5) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 13:15:09) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'hrv6cZ5MoS5oYJSjDaDu99u3VvMfJUyen8f6kn9tKo' AND "oauth_nonces".timestamp = 1255691709) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.8ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('hrv6cZ5MoS5oYJSjDaDu99u3VvMfJUyen8f6kn9tKo', 1255691709, '2009-10-16 13:15:09', '2009-10-16 13:15:09')[0m
+  [4;35;1mOauthToken Load (0.5ms)[0m   [0mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'cRVjbEP6HmCjvqBTHhqG') LIMIT 1[0m
+  [4;36;1mRequestToken Create (2.1ms)[0m   [0;1mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, 'cRVjbEP6HmCjvqBTHhqG', 'cs2YrUyMWimH0JoKVwCx7lgWqSHwRHnn5OQj52Va', 'http://localhost:3001/oauth_consumers/callback', NULL, NULL, NULL, '2009-10-16 13:15:09', '2009-10-16 13:15:09')[0m
+Completed in 247ms (View: 2, DB: 5) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 13:15:09) [GET]
+  Parameters: {"oauth_token"=>"cRVjbEP6HmCjvqBTHhqG", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 13:15:09', "updated_at" = '2009-10-16 13:15:09' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (0.6ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'cRVjbEP6HmCjvqBTHhqG') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;36;1mClientApplication Load (0.6ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 13:05:10') [0m
+Completed in 162ms (View: 32, DB: 3) | 200 OK [http://localhost/oauth/authorize?oauth_token=cRVjbEP6HmCjvqBTHhqG]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 13:15:10) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 13:15:12) [POST]
+  Parameters: {"authenticity_token"=>"EvdZpRJQNh358R2Fgaec7iN+UUvYDwjlRDNm3SbvhzQ=", "oauth_token"=>"cRVjbEP6HmCjvqBTHhqG", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 13:15:12', "updated_at" = '2009-10-16 13:15:12' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (0.5ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'cRVjbEP6HmCjvqBTHhqG') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;35;1mOauthToken Load (0.2ms)[0m   [0mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'cRVjbEP6HmCjvqBTHhqG' AND "oauth_tokens".id <> 136) LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mRequestToken Update (1.8ms)[0m   [0mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 13:15:12', "verifier" = 'h7Hyz6Lu1h3vokvioNls', "updated_at" = '2009-10-16 13:15:12' WHERE "id" = 136[0m
+Redirected to http://localhost:3001/oauth_consumers/callback?oauth_token=cRVjbEP6HmCjvqBTHhqG&oauth_verifier=h7Hyz6Lu1h3vokvioNls
+Completed in 320ms (DB: 4) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 13:15:12) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'cRVjbEP6HmCjvqBTHhqG') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = '9XSAW1mM9xydkXcRCtKtdN5oWOtjEAIoSQ3QPM3mdk' AND "oauth_nonces".timestamp = 1255691712) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.1ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('9XSAW1mM9xydkXcRCtKtdN5oWOtjEAIoSQ3QPM3mdk', 1255691712, '2009-10-16 13:15:12', '2009-10-16 13:15:12')[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mAccessToken Load (0.9ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;36;1mRequestToken Update (1.3ms)[0m   [0;1mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 13:15:13', "updated_at" = '2009-10-16 13:15:13' WHERE "id" = 136[0m
+Completed in 247ms (View: 2, DB: 5) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 13:16:07) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'cRVjbEP6HmCjvqBTHhqG') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'Xz9WvXRoWrHEYodGVSVg93MYKpP3sCgrknt4cpw7Y' AND "oauth_nonces".timestamp = 1255691766) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.1ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('Xz9WvXRoWrHEYodGVSVg93MYKpP3sCgrknt4cpw7Y', 1255691766, '2009-10-16 13:16:07', '2009-10-16 13:16:07')[0m
+  [4;35;1mOauthToken Load (0.9ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'cRVjbEP6HmCjvqBTHhqG') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.6ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.4ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'Xz9WvXRoWrHEYodGVSVg93MYKpP3sCgrknt4cpw7Y' AND "oauth_nonces".timestamp = 1255691766) LIMIT 1[0m
+Completed in 150ms (View: 1, DB: 4) | 401 Unauthorized [http://localhost/oauth/access_token]
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 13:17:14) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'FQg2bzcoFgZHgPq8MtCYjLhNdnWMGqv5g6FhEMTcno' AND "oauth_nonces".timestamp = 1255691833) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.0ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('FQg2bzcoFgZHgPq8MtCYjLhNdnWMGqv5g6FhEMTcno', 1255691833, '2009-10-16 13:17:14', '2009-10-16 13:17:14')[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 170ms (View: 2, DB: 3) | 200 OK [http://localhost/account.xml]
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 13:17:16) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'oxClGMVREROfK4yjqwpTOU8dbyoJvxFwmDJyjJi4' AND "oauth_nonces".timestamp = 1255691835) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.1ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('oxClGMVREROfK4yjqwpTOU8dbyoJvxFwmDJyjJi4', 1255691835, '2009-10-16 13:17:16', '2009-10-16 13:17:16')[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 162ms (View: 2, DB: 3) | 200 OK [http://localhost/account.xml]
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 13:19:06) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'a7ncUe8lKEHCroOmqqnNpyL5RIWVMqho4jSaaoELc' AND "oauth_nonces".timestamp = 1255691946) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (2.8ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('a7ncUe8lKEHCroOmqqnNpyL5RIWVMqho4jSaaoELc', 1255691946, '2009-10-16 13:19:06', '2009-10-16 13:19:06')[0m
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'MtX9FQYbEJjl9gOMrRIZ') LIMIT 1[0m
+  [4;36;1mRequestToken Create (2.2ms)[0m   [0;1mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, 'MtX9FQYbEJjl9gOMrRIZ', 'CcgN3RnyASJ3i5f8zvGJkW1sXk6ivaQekgwZW5SB', 'http://localhost:3001/oauth_consumers/callback', NULL, NULL, NULL, '2009-10-16 13:19:06', '2009-10-16 13:19:06')[0m
+Completed in 285ms (View: 2, DB: 6) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 13:19:07) [GET]
+  Parameters: {"oauth_token"=>"MtX9FQYbEJjl9gOMrRIZ", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 13:19:07', "updated_at" = '2009-10-16 13:19:07' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (0.9ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'MtX9FQYbEJjl9gOMrRIZ') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;36;1mClientApplication Load (0.6ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 13:09:07') [0m
+Completed in 178ms (View: 32, DB: 3) | 200 OK [http://localhost/oauth/authorize?oauth_token=MtX9FQYbEJjl9gOMrRIZ]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 13:19:07) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 13:19:08) [POST]
+  Parameters: {"authenticity_token"=>"EvdZpRJQNh358R2Fgaec7iN+UUvYDwjlRDNm3SbvhzQ=", "oauth_token"=>"MtX9FQYbEJjl9gOMrRIZ", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 13:19:08', "updated_at" = '2009-10-16 13:19:08' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'MtX9FQYbEJjl9gOMrRIZ') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'MtX9FQYbEJjl9gOMrRIZ' AND "oauth_tokens".id <> 137) LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.5ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mRequestToken Update (1.3ms)[0m   [0mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 13:19:08', "verifier" = 'XsdElKNmIltoj1FjjZrE', "updated_at" = '2009-10-16 13:19:08' WHERE "id" = 137[0m
+Redirected to http://localhost:3001/oauth_consumers/callback?oauth_token=MtX9FQYbEJjl9gOMrRIZ&oauth_verifier=XsdElKNmIltoj1FjjZrE
+Completed in 250ms (DB: 5) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 13:19:09) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'MtX9FQYbEJjl9gOMrRIZ') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'OVJplYQ6IwIbtlUiPogHvKm83RvfJTcwJbT1wGovXk' AND "oauth_nonces".timestamp = 1255691948) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.8ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('OVJplYQ6IwIbtlUiPogHvKm83RvfJTcwJbT1wGovXk', 1255691948, '2009-10-16 13:19:09', '2009-10-16 13:19:09')[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mAccessToken Load (0.8ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;36;1mRequestToken Update (1.3ms)[0m   [0;1mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 13:19:09', "updated_at" = '2009-10-16 13:19:09' WHERE "id" = 137[0m
+Completed in 256ms (View: 2, DB: 6) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 13:19:09) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;35;1mOauthToken Load (0.7ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'FxRU1HIGxHj2X1zzsuRr3W1LrvYGpk9pQTusAcrkzkk' AND "oauth_nonces".timestamp = 1255691949) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.0ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('FxRU1HIGxHj2X1zzsuRr3W1LrvYGpk9pQTusAcrkzkk', 1255691949, '2009-10-16 13:19:09', '2009-10-16 13:19:09')[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 267ms (View: 2, DB: 3) | 200 OK [http://localhost/account.json]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 13:19:56) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'MtX9FQYbEJjl9gOMrRIZ') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'oPjg1AkvSgFYZFkX8iv2tWgAEIWIA3fVo4GkCUg' AND "oauth_nonces".timestamp = 1255691996) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.9ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('oPjg1AkvSgFYZFkX8iv2tWgAEIWIA3fVo4GkCUg', 1255691996, '2009-10-16 13:19:56', '2009-10-16 13:19:56')[0m
+  [4;36;1mOauthToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'MtX9FQYbEJjl9gOMrRIZ') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.4ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'oPjg1AkvSgFYZFkX8iv2tWgAEIWIA3fVo4GkCUg' AND "oauth_nonces".timestamp = 1255691996) LIMIT 1[0m
+Completed in 158ms (View: 2, DB: 5) | 401 Unauthorized [http://localhost/oauth/access_token]
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 13:20:01) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;35;1mClientApplication Load (0.4ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'ugmSNoBCg7WoxvfIBlFRpK0yYVLDiAR722j0SDKsRU' AND "oauth_nonces".timestamp = 1255692000) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.5ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('ugmSNoBCg7WoxvfIBlFRpK0yYVLDiAR722j0SDKsRU', 1255692000, '2009-10-16 13:20:01', '2009-10-16 13:20:01')[0m
+  [4;36;1mOauthToken Load (0.5ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'ZMPGsGRKYkBKlh6fEisp') LIMIT 1[0m
+  [4;35;1mRequestToken Create (2.2ms)[0m   [0mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, 'ZMPGsGRKYkBKlh6fEisp', 'ThaQgohpEqGRuIzpicuG7RF5mMKw6DkDpxKTIyPh', 'http://localhost:3001/oauth_consumers/callback', NULL, NULL, NULL, '2009-10-16 13:20:01', '2009-10-16 13:20:01')[0m
+Completed in 232ms (View: 2, DB: 5) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 13:20:01) [GET]
+  Parameters: {"oauth_token"=>"ZMPGsGRKYkBKlh6fEisp", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 13:20:01', "updated_at" = '2009-10-16 13:20:01' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'ZMPGsGRKYkBKlh6fEisp') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 13:10:01') [0m
+Completed in 187ms (View: 32, DB: 3) | 200 OK [http://localhost/oauth/authorize?oauth_token=ZMPGsGRKYkBKlh6fEisp]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 13:20:01) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 13:20:03) [POST]
+  Parameters: {"authenticity_token"=>"EvdZpRJQNh358R2Fgaec7iN+UUvYDwjlRDNm3SbvhzQ=", "oauth_token"=>"ZMPGsGRKYkBKlh6fEisp", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 13:20:03', "updated_at" = '2009-10-16 13:20:03' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (0.7ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'ZMPGsGRKYkBKlh6fEisp') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;36;1mOauthToken Load (0.3ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'ZMPGsGRKYkBKlh6fEisp' AND "oauth_tokens".id <> 138) LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mRequestToken Update (1.5ms)[0m   [0;1mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 13:20:03', "verifier" = '9tfzxbUNf6BMiha5MSPC', "updated_at" = '2009-10-16 13:20:03' WHERE "id" = 138[0m
+Redirected to http://localhost:3001/oauth_consumers/callback?oauth_token=ZMPGsGRKYkBKlh6fEisp&oauth_verifier=9tfzxbUNf6BMiha5MSPC
+Completed in 238ms (DB: 4) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 13:20:04) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'ZMPGsGRKYkBKlh6fEisp') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'ulCpedtzL9Q1qEsIVHBF420Yibpg98D1sqi33eYmJI' AND "oauth_nonces".timestamp = 1255692003) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.1ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('ulCpedtzL9Q1qEsIVHBF420Yibpg98D1sqi33eYmJI', 1255692003, '2009-10-16 13:20:04', '2009-10-16 13:20:04')[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccessToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;35;1mRequestToken Update (1.2ms)[0m   [0mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 13:20:04', "updated_at" = '2009-10-16 13:20:04' WHERE "id" = 138[0m
+Completed in 248ms (View: 2, DB: 5) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 13:20:04) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'NK8m58BZIOJLrw2HOv8cTMLmXIullbeKCIhVMvkBJhc' AND "oauth_nonces".timestamp = 1255692004) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.0ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('NK8m58BZIOJLrw2HOv8cTMLmXIullbeKCIhVMvkBJhc', 1255692004, '2009-10-16 13:20:04', '2009-10-16 13:20:04')[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 214ms (View: 2, DB: 3) | 200 OK [http://localhost/account.json]
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 13:20:29) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = '0vwC0T8UrPD3wVIeiBNrAPh3GU9JC5p181ieo6ncZ5M' AND "oauth_nonces".timestamp = 1255692029) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.9ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('0vwC0T8UrPD3wVIeiBNrAPh3GU9JC5p181ieo6ncZ5M', 1255692029, '2009-10-16 13:20:29', '2009-10-16 13:20:29')[0m
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'HCpYvKjDmmiqOTE40J5v') LIMIT 1[0m
+  [4;35;1mRequestToken Create (2.1ms)[0m   [0mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, 'HCpYvKjDmmiqOTE40J5v', 'EWgaUscJvxkKNZLj0nrrxSeLs73oonH6JXBdZ5i1', 'http://localhost:3001/oauth_consumers/callback', NULL, NULL, NULL, '2009-10-16 13:20:29', '2009-10-16 13:20:29')[0m
+Completed in 226ms (View: 2, DB: 5) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 13:20:29) [GET]
+  Parameters: {"oauth_token"=>"HCpYvKjDmmiqOTE40J5v", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 13:20:29', "updated_at" = '2009-10-16 13:20:29' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (1.0ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'HCpYvKjDmmiqOTE40J5v') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 13:10:29') [0m
+Completed in 173ms (View: 33, DB: 4) | 200 OK [http://localhost/oauth/authorize?oauth_token=HCpYvKjDmmiqOTE40J5v]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 13:20:29) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 13:20:31) [POST]
+  Parameters: {"authenticity_token"=>"EvdZpRJQNh358R2Fgaec7iN+UUvYDwjlRDNm3SbvhzQ=", "oauth_token"=>"HCpYvKjDmmiqOTE40J5v", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.1ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 13:20:31', "updated_at" = '2009-10-16 13:20:31' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (0.6ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'HCpYvKjDmmiqOTE40J5v') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'HCpYvKjDmmiqOTE40J5v' AND "oauth_tokens".id <> 139) LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mRequestToken Update (1.3ms)[0m   [0;1mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 13:20:31', "verifier" = 'AX1mh2SI2yjEe8qH7mBl', "updated_at" = '2009-10-16 13:20:31' WHERE "id" = 139[0m
+Redirected to http://localhost:3001/oauth_consumers/callback?oauth_token=HCpYvKjDmmiqOTE40J5v&oauth_verifier=AX1mh2SI2yjEe8qH7mBl
+Completed in 237ms (DB: 4) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 13:20:31) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'HCpYvKjDmmiqOTE40J5v') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'CPEu15X0S5sERNJcN15wT3zP3oGqLuwExNBikkFQY' AND "oauth_nonces".timestamp = 1255692031) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.2ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('CPEu15X0S5sERNJcN15wT3zP3oGqLuwExNBikkFQY', 1255692031, '2009-10-16 13:20:31', '2009-10-16 13:20:31')[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccessToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;35;1mRequestToken Update (0.7ms)[0m   [0mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 13:20:31', "updated_at" = '2009-10-16 13:20:31' WHERE "id" = 139[0m
+Completed in 315ms (View: 2, DB: 4) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 13:20:31) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = '3beBjPwnMI89DyxOplOaaNG8QXOD7r3DkMiyfSmG5nk' AND "oauth_nonces".timestamp = 1255692031) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.0ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('3beBjPwnMI89DyxOplOaaNG8QXOD7r3DkMiyfSmG5nk', 1255692031, '2009-10-16 13:20:31', '2009-10-16 13:20:31')[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 176ms (View: 2, DB: 3) | 200 OK [http://localhost/account.json]
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 13:22:04) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'DO1FTOgs2lytWiWO9efSRzWPZRJGZw63JR4JXhOWsE' AND "oauth_nonces".timestamp = 1255692124) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.0ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('DO1FTOgs2lytWiWO9efSRzWPZRJGZw63JR4JXhOWsE', 1255692124, '2009-10-16 13:22:04', '2009-10-16 13:22:04')[0m
+  [4;36;1mOauthToken Load (0.3ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'SV0qJJiLZFXwYfoJ7DiQ') LIMIT 1[0m
+  [4;35;1mRequestToken Create (1.1ms)[0m   [0mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, 'SV0qJJiLZFXwYfoJ7DiQ', 'HDk3I1C872r49DjweAGT54TAfiDgHsV9CKf1CEsb', 'http://localhost:3001/oauth_consumers/callback', NULL, NULL, NULL, '2009-10-16 13:22:04', '2009-10-16 13:22:04')[0m
+Completed in 224ms (View: 2, DB: 3) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 13:22:05) [GET]
+  Parameters: {"oauth_token"=>"SV0qJJiLZFXwYfoJ7DiQ", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 13:22:05', "updated_at" = '2009-10-16 13:22:05' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'SV0qJJiLZFXwYfoJ7DiQ') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;35;1mClientApplication Load (0.6ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 13:12:05') [0m
+Completed in 188ms (View: 33, DB: 4) | 200 OK [http://localhost/oauth/authorize?oauth_token=SV0qJJiLZFXwYfoJ7DiQ]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 13:22:05) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 13:22:06) [POST]
+  Parameters: {"authenticity_token"=>"EvdZpRJQNh358R2Fgaec7iN+UUvYDwjlRDNm3SbvhzQ=", "oauth_token"=>"SV0qJJiLZFXwYfoJ7DiQ", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 13:22:06', "updated_at" = '2009-10-16 13:22:06' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (0.7ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'SV0qJJiLZFXwYfoJ7DiQ') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;36;1mOauthToken Load (0.3ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'SV0qJJiLZFXwYfoJ7DiQ' AND "oauth_tokens".id <> 140) LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.5ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mRequestToken Update (1.4ms)[0m   [0;1mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 13:22:06', "verifier" = 'GsCAN2Ic35rodp6ydKFL', "updated_at" = '2009-10-16 13:22:06' WHERE "id" = 140[0m
+Redirected to http://localhost:3001/oauth_consumers/callback?oauth_token=SV0qJJiLZFXwYfoJ7DiQ&oauth_verifier=GsCAN2Ic35rodp6ydKFL
+Completed in 242ms (DB: 4) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 13:22:07) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'SV0qJJiLZFXwYfoJ7DiQ') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'suZDc3y0iM9zZSBbCv2JxFuqVGsnUKQNk7c2CmhY' AND "oauth_nonces".timestamp = 1255692126) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.1ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('suZDc3y0iM9zZSBbCv2JxFuqVGsnUKQNk7c2CmhY', 1255692126, '2009-10-16 13:22:07', '2009-10-16 13:22:07')[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccessToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;35;1mRequestToken Update (1.3ms)[0m   [0mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 13:22:07', "updated_at" = '2009-10-16 13:22:07' WHERE "id" = 140[0m
+Completed in 248ms (View: 1, DB: 5) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 13:22:07) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'a9C5lq4CsKT6UMLE7m2eeT5dVZyrWlgb6jcHWhUaT0' AND "oauth_nonces".timestamp = 1255692127) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.1ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('a9C5lq4CsKT6UMLE7m2eeT5dVZyrWlgb6jcHWhUaT0', 1255692127, '2009-10-16 13:22:07', '2009-10-16 13:22:07')[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 164ms (View: 2, DB: 3) | 200 OK [http://localhost/account.json]
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 13:22:09) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;35;1mClientApplication Load (0.4ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'q6YWop2Cuc1s6Q9zbw3EfJvkxFOyAwUShE7oqEGGdKQ' AND "oauth_nonces".timestamp = 1255692129) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.0ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('q6YWop2Cuc1s6Q9zbw3EfJvkxFOyAwUShE7oqEGGdKQ', 1255692129, '2009-10-16 13:22:09', '2009-10-16 13:22:09')[0m
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'WzlXeMBdGdenH1hAuEpG') LIMIT 1[0m
+  [4;35;1mRequestToken Create (1.7ms)[0m   [0mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, 'WzlXeMBdGdenH1hAuEpG', 'BwcGJg6YJKAHj3fnUqDMDAvM7FWlXGiR0sDwmQVy', 'http://localhost:3001/oauth_consumers/callback', NULL, NULL, NULL, '2009-10-16 13:22:09', '2009-10-16 13:22:09')[0m
+Completed in 216ms (View: 2, DB: 4) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 13:22:10) [GET]
+  Parameters: {"oauth_token"=>"WzlXeMBdGdenH1hAuEpG", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (1.8ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 13:22:10', "updated_at" = '2009-10-16 13:22:10' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'WzlXeMBdGdenH1hAuEpG') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;35;1mClientApplication Load (0.7ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 13:12:10') [0m
+Completed in 192ms (View: 33, DB: 4) | 200 OK [http://localhost/oauth/authorize?oauth_token=WzlXeMBdGdenH1hAuEpG]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 13:22:10) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 13:22:11) [POST]
+  Parameters: {"authenticity_token"=>"EvdZpRJQNh358R2Fgaec7iN+UUvYDwjlRDNm3SbvhzQ=", "oauth_token"=>"WzlXeMBdGdenH1hAuEpG", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Update (1.1ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 13:22:11', "updated_at" = '2009-10-16 13:22:11' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (0.9ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'WzlXeMBdGdenH1hAuEpG') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'WzlXeMBdGdenH1hAuEpG' AND "oauth_tokens".id <> 141) LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.5ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mRequestToken Update (1.3ms)[0m   [0;1mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 13:22:11', "verifier" = 'gnrzS2RJ9lGnDRbjomfO', "updated_at" = '2009-10-16 13:22:11' WHERE "id" = 141[0m
+Redirected to http://localhost:3001/oauth_consumers/callback?oauth_token=WzlXeMBdGdenH1hAuEpG&oauth_verifier=gnrzS2RJ9lGnDRbjomfO
+Completed in 266ms (DB: 5) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 13:22:12) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;35;1mOauthToken Load (0.7ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'WzlXeMBdGdenH1hAuEpG') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = '94h0v1jzLRRiWvpnQCR8DbYjiicgwNR6HwimFaM28M' AND "oauth_nonces".timestamp = 1255692132) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.8ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('94h0v1jzLRRiWvpnQCR8DbYjiicgwNR6HwimFaM28M', 1255692132, '2009-10-16 13:22:12', '2009-10-16 13:22:12')[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccessToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;35;1mRequestToken Update (1.2ms)[0m   [0mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 13:22:12', "updated_at" = '2009-10-16 13:22:12' WHERE "id" = 141[0m
+Completed in 328ms (View: 2, DB: 6) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 13:22:12) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'Sz3AYLsXFxvPDkwZzG65xkbYib5YeiLvf8PaF03t3Y' AND "oauth_nonces".timestamp = 1255692132) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.8ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('Sz3AYLsXFxvPDkwZzG65xkbYib5YeiLvf8PaF03t3Y', 1255692132, '2009-10-16 13:22:12', '2009-10-16 13:22:12')[0m
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 154ms (View: 2, DB: 3) | 200 OK [http://localhost/account.json]
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 13:25:11) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;35;1mClientApplication Load (0.4ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;36;1mOauthNonce Load (0.3ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'ANc0nKB5hqpKykwmaYCPSAm25U8C2fkeZVpz2ZnWapo' AND "oauth_nonces".timestamp = 1255692310) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.1ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('ANc0nKB5hqpKykwmaYCPSAm25U8C2fkeZVpz2ZnWapo', 1255692310, '2009-10-16 13:25:11', '2009-10-16 13:25:11')[0m
+  [4;36;1mOauthToken Load (0.5ms)[0m   [0;1mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '1KMjEK1b3y3A2LjZ6XUL') LIMIT 1[0m
+  [4;35;1mRequestToken Create (4.7ms)[0m   [0mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, '1KMjEK1b3y3A2LjZ6XUL', 'I4HEYNDmsZy4Tx7DvLVgr6RXOwbYrnzhtORVqzQ4', 'http://localhost:3001/oauth_consumers/callback', NULL, NULL, NULL, '2009-10-16 13:25:11', '2009-10-16 13:25:11')[0m
+Completed in 253ms (View: 2, DB: 7) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 13:25:11) [GET]
+  Parameters: {"oauth_token"=>"1KMjEK1b3y3A2LjZ6XUL", "controller"=>"oauth", "action"=>"authorize"}
+Redirected to http://localhost:3000/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 28ms (DB: 0) | 302 Found [http://localhost/oauth/authorize?oauth_token=1KMjEK1b3y3A2LjZ6XUL]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-10-16 13:25:11) [GET]
+  Parameters: {"controller"=>"user_sessions", "action"=>"new"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 13:15:11') [0m
+Completed in 22ms (View: 7, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 13:25:11) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-10-16 13:25:15) [POST]
+  Parameters: {"authenticity_token"=>"enCb+BnGUl3yDchPi8bpPcTM69t/M1kLhSrmMGMXtLg=", "user_session"=>{"login"=>"kuba", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login", "controller"=>"user_sessions", "action"=>"create"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'kuba') LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "login_count" = 7, "last_login_at" = '2009-10-16 11:05:08', "current_login_at" = '2009-10-16 13:25:15', "last_request_at" = '2009-10-16 13:25:15', "updated_at" = '2009-10-16 13:25:15' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/oauth/authorize?oauth_token=1KMjEK1b3y3A2LjZ6XUL
+Completed in 115ms (DB: 2) | 302 Found [http://localhost/user_session]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 13:25:15) [GET]
+  Parameters: {"oauth_token"=>"1KMjEK1b3y3A2LjZ6XUL", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (2.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 13:25:15', "updated_at" = '2009-10-16 13:25:15' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (1.1ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '1KMjEK1b3y3A2LjZ6XUL') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;36;1mClientApplication Load (0.7ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 13:15:15') [0m
+Completed in 199ms (View: 33, DB: 5) | 200 OK [http://localhost/oauth/authorize?oauth_token=1KMjEK1b3y3A2LjZ6XUL]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 13:25:15) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 13:25:16) [POST]
+  Parameters: {"authenticity_token"=>"enCb+BnGUl3yDchPi8bpPcTM69t/M1kLhSrmMGMXtLg=", "oauth_token"=>"1KMjEK1b3y3A2LjZ6XUL", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 13:25:16', "updated_at" = '2009-10-16 13:25:16' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (1.0ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '1KMjEK1b3y3A2LjZ6XUL') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;35;1mOauthToken Load (0.3ms)[0m   [0mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '1KMjEK1b3y3A2LjZ6XUL' AND "oauth_tokens".id <> 142) LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.6ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mRequestToken Update (1.3ms)[0m   [0mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 13:25:17', "verifier" = 'HDFdi7wK8k9w31XBNpGw', "updated_at" = '2009-10-16 13:25:17' WHERE "id" = 142[0m
+Redirected to http://localhost:3001/oauth_consumers/callback?oauth_token=1KMjEK1b3y3A2LjZ6XUL&oauth_verifier=HDFdi7wK8k9w31XBNpGw
+Completed in 249ms (DB: 5) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 13:25:17) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = '1KMjEK1b3y3A2LjZ6XUL') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.4ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'VyIaTKNjfEOL6NiwpzGXb5mzJHwRz20t6mhQAl3dED4' AND "oauth_nonces".timestamp = 1255692317) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.8ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('VyIaTKNjfEOL6NiwpzGXb5mzJHwRz20t6mhQAl3dED4', 1255692317, '2009-10-16 13:25:17', '2009-10-16 13:25:17')[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mAccessToken Load (0.9ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;36;1mRequestToken Update (1.2ms)[0m   [0;1mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 13:25:17', "updated_at" = '2009-10-16 13:25:17' WHERE "id" = 142[0m
+Completed in 253ms (View: 2, DB: 6) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 13:25:17) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;35;1mOauthToken Load (0.6ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.4ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.3ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'deJlqep3FBMWs0uE6xDgd91PfDYZczAXWHgIdCCuJE' AND "oauth_nonces".timestamp = 1255692317) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.2ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('deJlqep3FBMWs0uE6xDgd91PfDYZczAXWHgIdCCuJE', 1255692317, '2009-10-16 13:25:17', '2009-10-16 13:25:17')[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 157ms (View: 1, DB: 3) | 200 OK [http://localhost/account.json]
+
+
+Processing OauthController#request_token (for 127.0.0.1 at 2009-10-16 13:25:50) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"request_token"}
+  [4;36;1mClientApplication Load (0.4ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."key" = 'izXS0c1kE2BXd9Lt95sD') LIMIT 1[0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'MH4LMBtDqi1iUXnPiDG6v3aOlr7FJ8qD4X6HJhljAQ' AND "oauth_nonces".timestamp = 1255692350) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (2.3ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('MH4LMBtDqi1iUXnPiDG6v3aOlr7FJ8qD4X6HJhljAQ', 1255692350, '2009-10-16 13:25:50', '2009-10-16 13:25:50')[0m
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'jifsMBRdUcfvewdrnPFF') LIMIT 1[0m
+  [4;36;1mRequestToken Create (2.6ms)[0m   [0;1mINSERT INTO "oauth_tokens" ("user_id", "type", "client_application_id", "token", "secret", "callback_url", "verifier", "authorized_at", "invalidated_at", "created_at", "updated_at") VALUES(NULL, 'RequestToken', 1, 'jifsMBRdUcfvewdrnPFF', 'aPyDwoCviWOSmUcXctippHtaN0DSLh7OrmPRdi9K', 'http://localhost:3001/oauth_consumers/callback', NULL, NULL, NULL, '2009-10-16 13:25:50', '2009-10-16 13:25:50')[0m
+Completed in 238ms (View: 2, DB: 6) | 200 OK [http://localhost/oauth/request_token]
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 13:25:50) [GET]
+  Parameters: {"oauth_token"=>"jifsMBRdUcfvewdrnPFF", "controller"=>"oauth", "action"=>"authorize"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "last_request_at" = '2009-10-16 13:25:50', "updated_at" = '2009-10-16 13:25:50' WHERE "id" = 1[0m
+  [4;35;1mRequestToken Load (0.9ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'jifsMBRdUcfvewdrnPFF') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering oauth/authorize
+  [4;36;1mClientApplication Load (0.6ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE (last_request_at > '2009-10-16 13:15:50') [0m
+Completed in 172ms (View: 32, DB: 3) | 200 OK [http://localhost/oauth/authorize?oauth_token=jifsMBRdUcfvewdrnPFF]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-16 13:25:51) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing OauthController#authorize (for 127.0.0.1 at 2009-10-16 13:25:52) [POST]
+  Parameters: {"authenticity_token"=>"enCb+BnGUl3yDchPi8bpPcTM69t/M1kLhSrmMGMXtLg=", "oauth_token"=>"jifsMBRdUcfvewdrnPFF", "authorize"=>"Yes", "controller"=>"oauth", "action"=>"authorize"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.5ms)[0m   [0mUPDATE "users" SET "last_request_at" = '2009-10-16 13:25:52', "updated_at" = '2009-10-16 13:25:52' WHERE "id" = 1[0m
+  [4;36;1mRequestToken Load (0.9ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'jifsMBRdUcfvewdrnPFF') AND ("oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'RequestToken' ) ) LIMIT 1[0m
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT "oauth_tokens".id FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'jifsMBRdUcfvewdrnPFF' AND "oauth_tokens".id <> 143) LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.5ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mRequestToken Update (1.3ms)[0m   [0mUPDATE "oauth_tokens" SET "user_id" = 1, "authorized_at" = '2009-10-16 13:25:52', "verifier" = 'QAK0FbWXEDxTtqJ0yYzh', "updated_at" = '2009-10-16 13:25:52' WHERE "id" = 143[0m
+Redirected to http://localhost:3001/oauth_consumers/callback?oauth_token=jifsMBRdUcfvewdrnPFF&oauth_verifier=QAK0FbWXEDxTtqJ0yYzh
+Completed in 278ms (DB: 5) | 302 Found [http://localhost/oauth/authorize]
+
+
+Processing OauthController#access_token (for 127.0.0.1 at 2009-10-16 13:25:52) [POST]
+  Parameters: {"controller"=>"oauth", "action"=>"access_token"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'jifsMBRdUcfvewdrnPFF') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'BiptDdh4r5fwkYhJ8OfALoLInZ844OE5wpQZ5LltqmU' AND "oauth_nonces".timestamp = 1255692352) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.9ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('BiptDdh4r5fwkYhJ8OfALoLInZ844OE5wpQZ5LltqmU', 1255692352, '2009-10-16 13:25:52', '2009-10-16 13:25:52')[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mAccessToken Load (0.8ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."user_id" = 1 AND "oauth_tokens"."client_application_id" = 1 AND "oauth_tokens"."invalidated_at" IS NULL) AND ( ("oauth_tokens"."type" = 'AccessToken' ) ) LIMIT 1[0m
+  [4;36;1mRequestToken Update (1.2ms)[0m   [0;1mUPDATE "oauth_tokens" SET "invalidated_at" = '2009-10-16 13:25:52', "updated_at" = '2009-10-16 13:25:52' WHERE "id" = 143[0m
+Completed in 336ms (View: 2, DB: 6) | 200 OK [http://localhost/oauth/access_token]
+
+
+Processing UsersController#show to json (for 127.0.0.1 at 2009-10-16 13:25:53) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"json"}
+  [4;35;1mOauthToken Load (0.5ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.4ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'aFluJqnNk8MmG5ptfRVQEAJWtSwCxmp1JasoJ0TkQ' AND "oauth_nonces".timestamp = 1255692353) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.9ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('aFluJqnNk8MmG5ptfRVQEAJWtSwCxmp1JasoJ0TkQ', 1255692353, '2009-10-16 13:25:53', '2009-10-16 13:25:53')[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 136ms (View: 1, DB: 3) | 200 OK [http://localhost/account.json]
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 13:26:14) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+  [4;36;1mOauthToken Load (0.4ms)[0m   [0;1mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;35;1mClientApplication Load (0.3ms)[0m   [0mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;36;1mOauthNonce Load (0.2ms)[0m   [0;1mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = '9pHilN8NTzfVKzrakbRhFEOET5a5o87hwtuWtL2NxM' AND "oauth_nonces".timestamp = 1255692373) LIMIT 1[0m
+  [4;35;1mOauthNonce Create (1.1ms)[0m   [0mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('9pHilN8NTzfVKzrakbRhFEOET5a5o87hwtuWtL2NxM', 1255692373, '2009-10-16 13:26:14', '2009-10-16 13:26:14')[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 207ms (View: 2, DB: 3) | 200 OK [http://localhost/account.xml]
+
+
+Processing UsersController#show to xml (for 127.0.0.1 at 2009-10-16 13:26:16) [GET]
+  Parameters: {"controller"=>"users", "action"=>"show", "format"=>"xml"}
+  [4;35;1mOauthToken Load (0.4ms)[0m   [0mSELECT * FROM "oauth_tokens" WHERE ("oauth_tokens"."token" = 'qktQt3tWQ75cbPJYRhne') LIMIT 1[0m
+  [4;36;1mClientApplication Load (0.3ms)[0m   [0;1mSELECT * FROM "client_applications" WHERE ("client_applications"."id" = 1) [0m
+  [4;35;1mOauthNonce Load (0.2ms)[0m   [0mSELECT "oauth_nonces".id FROM "oauth_nonces" WHERE ("oauth_nonces"."nonce" = 'FTv0sWMrJUsKFXRrtXBz9Wkn7NwbPVy4EpsoFGrmlPA' AND "oauth_nonces".timestamp = 1255692376) LIMIT 1[0m
+  [4;36;1mOauthNonce Create (1.0ms)[0m   [0;1mINSERT INTO "oauth_nonces" ("nonce", "timestamp", "created_at", "updated_at") VALUES('FTv0sWMrJUsKFXRrtXBz9Wkn7NwbPVy4EpsoFGrmlPA', 1255692376, '2009-10-16 13:26:16', '2009-10-16 13:26:16')[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 236ms (View: 1, DB: 3) | 200 OK [http://localhost/account.xml]

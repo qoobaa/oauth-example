@@ -63,7 +63,12 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    @current_token = token if valid
+    if valid
+      @current_token = token
+      @current_user = token.user
+      @current_client_application = token.client_application
+      token
+    end
   end
 
   def current_client_application

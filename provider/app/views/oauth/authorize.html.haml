@@ -10,7 +10,5 @@
   - if params[:oauth_callback]
     = hidden_field_tag "oauth_callback", params[:oauth_callback]
   %p
-    = check_box_tag 'authorize'
-    authorize access
-  %p
-    = submit_tag
+    = submit_tag "Yes", :name => "authorize"
+    = submit_tag "No"
