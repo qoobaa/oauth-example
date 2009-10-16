@@ -3,7 +3,7 @@ class UserSessionsController < ApplicationController
   before_filter :require_user, :only => :destroy
 
   def new
-    @request_token = CvToken.get_request_token(create_user_session_url)
+    @request_token = User.get_request_token(create_user_session_url)
     session[:request_token_secret] = @request_token.secret
     if @request_token.callback_confirmed?
       redirect_to @request_token.authorize_url
