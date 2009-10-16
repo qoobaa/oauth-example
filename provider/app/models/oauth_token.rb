@@ -5,6 +5,8 @@ class OauthToken < ActiveRecord::Base
   validates_presence_of :client_application, :token, :secret
   before_validation_on_create :generate_keys
 
+  named_scope :valid, :conditions => { :invalidated_at => nil }
+
   def invalidated?
     invalidated_at != nil
   end
