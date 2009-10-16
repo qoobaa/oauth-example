@@ -2,20 +2,28 @@ require File.dirname(__FILE__) + '/../test_helper'
 module OAuthHelpers
 
   def create_consumer
-    @consumer=OAuth::Consumer.new(@application.key,@application.secret,
-      {
-        :site=>@application.oauth_server.base_url
-      })
+    @consumer = OAuth::Consumer.new(
+      @application.key, @application.secret,
+      :site => @application.oauth_server.base_url
+    )
   end
 
 end
 
 class ClientApplicationTest < ActiveSupport::TestCase
   include OAuthHelpers
+<<<<<<< HEAD:provider/test/unit/client_application_test.rb
   fixtures :users,:client_applications,:oauth_tokens
+=======
+  fixtures :users, :client_applications, :oauth_tokens
+>>>>>>> modified some unit tests:provider/test/unit/client_application_test.rb
 
   def setup
-    @application = ClientApplication.create :name=>"Agree2",:url=>"http://agree2.com",:user=>users(:quentin)
+    @application = ClientApplication.create(
+      :name => "Agree2",
+      :url  => "http://agree2.com",
+      :user => users(:quentin)
+    )
     create_consumer
   end
 
@@ -25,7 +33,7 @@ class ClientApplicationTest < ActiveSupport::TestCase
 
 
   def test_should_not_have_errors
-    assert_equal [], @application.errors.full_messages
+    assert @application.errors.empty?
   end
 
   def test_should_have_key_and_secret
@@ -37,6 +45,31 @@ class ClientApplicationTest < ActiveSupport::TestCase
     assert_not_nil @application.credentials
     assert_equal @application.key, @application.credentials.key
     assert_equal @application.secret, @application.credentials.secret
+  end
+
+  def test_should_find_token_by_token_key
+    @token = @application.create_request_token
+    @token.authorize!(users(:quentin))
+    assert ClientApplication.find_token(@token.token)
+  end
+
+  def test_should_not_find_token_by_invalid_token_key
+    assert_nil ClientApplication.find_token("")
+  end
+
+  def test_should_not_find_not_authorized_token
+    @token = @application.create_request_token
+    assert_nil ClientApplication.find_token(@token.token)
+  end
+
+  # TODO
+  def test_should_verify_request
+  end
+
+  def test_should_create_valid_request_token
+    @token = @application.create_request_token
+    assert @token
+    assert @token.valid?
   end
 
 end
