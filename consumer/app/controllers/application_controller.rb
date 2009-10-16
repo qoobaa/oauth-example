@@ -18,13 +18,7 @@ class ApplicationController < ActionController::Base
     unless current_user
       store_location
       flash[:notice] = "You must be logged in to access this page"
-      request_token = User.get_request_token(create_user_session_url)
-      session[:request_token_secret] = request_token.secret
-      if request_token.callback_confirmed?
-        redirect_to request_token.authorize_url
-      else
-        redirect_to(request_token.authorize_url + "&oauth_callback=#{create_user_session_url}")
-      end
+      redirect_to new_user_session_path
       return false
     end
   end

@@ -42,6 +42,18 @@ class OauthController < ApplicationController
           render :action => "authorize_failure"
         end
       end
+
+      # EXPERIMENTAL - QUICK AUTHENTICATION
+      if request.get? and AccessToken.exists?(:user_id => current_user.id, :client_application_id => @token.client_application_id, :invalidated_at => nil)
+        @token.authorize!(current_user)
+        @redirect_url = @token.oob? ? @token.client_application.callback_url : @token.callback_url
+
+        if @redirect_url
+          redirect_to "#{@redirect_url}?oauth_token=#{@token.token}&oauth_verifier=#{@token.verifier}"
+        else
+          render :action => "authorize_success"
+        end
+      end
     else
       render :action => "authorize_failure"
     end

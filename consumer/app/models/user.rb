@@ -36,4 +36,9 @@ class User < ActiveRecord::Base
   def client
     OAuth::AccessToken.new(self.class.consumer, token, secret)
   end
+
+  def name
+    response = client.get("http://localhost:3000/account.json")
+    JSON.parse(response.body)["user"]["name"] if (200...300).include?(response.code.to_i)
+  end
 end
