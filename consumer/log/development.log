@@ -15092,3 +15092,937 @@ Processing UsersController#show (for 127.0.0.1 at 2009-10-16 16:40:08) [GET]
 Rendering template within layouts/application
 Rendering users/show
 Completed in 325ms (View: 310, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 13:09:23) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+Completed in 229ms (View: 227, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 13:09:24) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+Completed in 21ms (View: 17, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-10-19 13:09:25) [DELETE]
+  Parameters: {"authenticity_token"=>"BrcFL99EtuP5wN6GLgQVCPrLVMI0e4sphBwBjnnnQ2M="}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+Redirected to http://localhost:3001/
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_session]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 13:09:26) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 62ms (View: 59, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 13:09:26) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 19ms (View: 14, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:09:27) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3001/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/account]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-10-19 13:09:28) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/oauth/authorize?oauth_token=c3V5850RGjzkXZ3tCdzr
+Completed in 2386ms (DB: 0) | 302 Found [http://localhost/user_session/new]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-10-19 13:09:30) [GET]
+  Parameters: {"oauth_token"=>"c3V5850RGjzkXZ3tCdzr", "oauth_verifier"=>"IKrC8w9EnCRZXxtO7TBF"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'dupa') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'dupa' AND "users".id <> 4) LIMIT 1[0m
+Redirected to http://localhost:3001/account
+Completed in 715ms (DB: 1) | 302 Found [http://localhost/user_session/create?oauth_token=c3V5850RGjzkXZ3tCdzr&oauth_verifier=IKrC8w9EnCRZXxtO7TBF]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:09:31) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 395ms (View: 379, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:09:34) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 347ms (View: 332, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 13:09:43) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 13:09:44) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:09:45) [GET]
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 288ms (View: 271, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-10-19 13:09:48) [DELETE]
+  Parameters: {"authenticity_token"=>"BrcFL99EtuP5wN6GLgQVCPrLVMI0e4sphBwBjnnnQ2M="}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+Redirected to http://localhost:3001/
+Completed in 73ms (DB: 1) | 302 Found [http://localhost/user_session]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 13:09:48) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 9ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-10-19 13:09:49) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/oauth/authorize?oauth_token=m1V6AkrrBN0V4UQ05leu
+Completed in 378ms (DB: 0) | 302 Found [http://localhost/user_session/new]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-10-19 13:09:55) [GET]
+  Parameters: {"oauth_token"=>"m1V6AkrrBN0V4UQ05leu", "oauth_verifier"=>"Ryrl2ijgHHlPIugq2FYN"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'kuba') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kuba' AND "users".id <> 3) LIMIT 1[0m
+Redirected to http://localhost:3001/
+Completed in 758ms (DB: 1) | 302 Found [http://localhost/user_session/create?oauth_token=m1V6AkrrBN0V4UQ05leu&oauth_verifier=Ryrl2ijgHHlPIugq2FYN]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 13:09:56) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 13:09:57) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 21ms (View: 17, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 13:11:11) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 21ms (View: 17, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-10-19 13:11:13) [DELETE]
+  Parameters: {"authenticity_token"=>"BrcFL99EtuP5wN6GLgQVCPrLVMI0e4sphBwBjnnnQ2M="}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Redirected to http://localhost:3001/
+Completed in 70ms (DB: 1) | 302 Found [http://localhost/user_session]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 13:11:13) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 18ms (View: 14, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 13:11:14) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 17ms (View: 14, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:11:15) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3001/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/account]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-10-19 13:11:15) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/oauth/authorize?oauth_token=CIKvVNnbfXODDSDtLnxE
+Completed in 425ms (DB: 0) | 302 Found [http://localhost/user_session/new]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-10-19 13:11:16) [GET]
+  Parameters: {"oauth_token"=>"CIKvVNnbfXODDSDtLnxE", "oauth_verifier"=>"B38rSDZnUm2CEBVsy3m2"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'kuba') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kuba' AND "users".id <> 3) LIMIT 1[0m
+Redirected to http://localhost:3001/account
+Completed in 737ms (DB: 1) | 302 Found [http://localhost/user_session/create?oauth_token=CIKvVNnbfXODDSDtLnxE&oauth_verifier=B38rSDZnUm2CEBVsy3m2]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:11:17) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 301ms (View: 286, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:11:18) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 316ms (View: 273, DB: 0) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:12:34) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 337ms (View: 321, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:13:13) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 255ms (View: 240, DB: 0) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:13:26) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]) on line #9 of app/views/users/show.html.haml:
+6: %p
+7:   Name:
+8:   = @user.name
+9: 
+10: %p= link_to "Back to home", root_path
+
+    app/models/user.rb:47:in `name'
+    app/views/users/show.html.haml:9:in `_run_haml_app47views47users47show46html46haml'
+    haml (2.2.8) [v] lib/haml/helpers/action_view_mods.rb:13:in `render_with_haml'
+    haml (2.2.8) [v] lib/haml/helpers/action_view_mods.rb:13:in `render_with_haml'
+    haml (2.2.8) [v] lib/sass/plugin/rails.rb:19:in `process'
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (131.5ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:20:53) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (ArgumentError) on line #9 of app/views/users/show.html.haml:
+6: %p
+7:   Name:
+8:   = @user.name
+9: 
+10: %p= link_to "Back to home", root_path
+
+    app/models/user.rb:42:in `remote_attributes'
+    app/models/user.rb:47:in `name'
+    app/views/users/show.html.haml:9:in `_run_haml_app47views47users47show46html46haml'
+    haml (2.2.8) [v] lib/haml/helpers/action_view_mods.rb:13:in `render_with_haml'
+    haml (2.2.8) [v] lib/haml/helpers/action_view_mods.rb:13:in `render_with_haml'
+    haml (2.2.8) [v] lib/sass/plugin/rails.rb:19:in `process'
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (153.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:21:02) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (ArgumentError) on line #9 of app/views/users/show.html.haml:
+6: %p
+7:   Name:
+8:   = @user.name
+9: 
+10: %p= link_to "Back to home", root_path
+
+    app/models/user.rb:42:in `remote_attributes'
+    app/models/user.rb:47:in `name'
+    app/views/users/show.html.haml:9:in `_run_haml_app47views47users47show46html46haml'
+    haml (2.2.8) [v] lib/haml/helpers/action_view_mods.rb:13:in `render_with_haml'
+    haml (2.2.8) [v] lib/haml/helpers/action_view_mods.rb:13:in `render_with_haml'
+    haml (2.2.8) [v] lib/sass/plugin/rails.rb:19:in `process'
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (99.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:21:28) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2009-10-19 13:21:29) [GET]
+/!\ FAILSAFE /!\  2009-10-19 13:21:29 +0200
+  Status: 500 Internal Server Error
+  uncaught throw :dupa
+    /home/kuba/oauth/oauth-example/consumer/app/controllers/application_controller.rb:45:in `throw'
+    /home/kuba/oauth/oauth-example/consumer/app/controllers/application_controller.rb:45:in `rescue_action'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/base.rb:532:in `process'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/filters.rb:606:in `process_with_filters'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/haml-2.2.8/lib/sass/plugin/rails.rb:19:in `process'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/rescue.rb:65:in `call_with_exception'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:90:in `rescue in dispatch'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:96:in `dispatch'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:121:in `_call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:130:in `block in build_middleware_stack'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/activerecord/lib/active_record/query_cache.rb:29:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/activerecord/lib/active_record/query_cache.rb:29:in `block in call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/activerecord/lib/active_record/query_cache.rb:9:in `cache'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/activerecord/lib/active_record/query_cache.rb:28:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/static.rb:33:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/plugins/rack-bug/lib/rack/bug/toolbar.rb:14:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/plugins/rack-bug/lib/rack/bug/toolbar.rb:54:in `pass'
+    /home/kuba/oauth/oauth-example/consumer/vendor/plugins/rack-bug/lib/rack/bug/toolbar.rb:49:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/params_parser.rb:15:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/failsafe.rb:26:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/lock.rb:11:in `block in call'
+    <internal:prelude>:8:in `synchronize'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:114:in `block in call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/reloader.rb:34:in `run'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:108:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/railties/lib/rails/rack/static.rb:31:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `block in call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/railties/lib/rails/rack/log_tailer.rb:17:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/handler/webrick.rb:46:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:21:39) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2009-10-19 13:21:40) [GET]
+/!\ FAILSAFE /!\  2009-10-19 13:21:40 +0200
+  Status: 500 Internal Server Error
+  uncaught throw #<ArgumentError: uncaught throw #<ActionView::TemplateError: 
+ActionView::TemplateError (ArgumentError) on line #9 of app/views/users/show.html.haml:
+6: %p
+7:   Name:
+8:   = @user.name
+9: 
+10: %p= link_to "Back to home", root_path
+
+    app/models/user.rb:42:in `remote_attributes'
+    app/models/user.rb:47:in `name'
+    app/views/users/show.html.haml:9:in `_run_haml_app47views47users47show46html46haml'
+    haml (2.2.8) [v] lib/haml/helpers/action_view_mods.rb:13:in `render_with_haml'
+    haml (2.2.8) [v] lib/haml/helpers/action_view_mods.rb:13:in `render_with_haml'
+    haml (2.2.8) [v] lib/sass/plugin/rails.rb:19:in `process'
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+>>
+    /home/kuba/oauth/oauth-example/consumer/app/controllers/application_controller.rb:45:in `throw'
+    /home/kuba/oauth/oauth-example/consumer/app/controllers/application_controller.rb:45:in `rescue_action'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/base.rb:532:in `process'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/filters.rb:606:in `process_with_filters'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/haml-2.2.8/lib/sass/plugin/rails.rb:19:in `process'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/rescue.rb:65:in `call_with_exception'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:90:in `rescue in dispatch'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:96:in `dispatch'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:121:in `_call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:130:in `block in build_middleware_stack'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/activerecord/lib/active_record/query_cache.rb:29:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/activerecord/lib/active_record/query_cache.rb:29:in `block in call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/activerecord/lib/active_record/query_cache.rb:9:in `cache'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/activerecord/lib/active_record/query_cache.rb:28:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/static.rb:33:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/plugins/rack-bug/lib/rack/bug/toolbar.rb:14:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/plugins/rack-bug/lib/rack/bug/toolbar.rb:54:in `pass'
+    /home/kuba/oauth/oauth-example/consumer/vendor/plugins/rack-bug/lib/rack/bug/toolbar.rb:49:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/params_parser.rb:15:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/failsafe.rb:26:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/lock.rb:11:in `block in call'
+    <internal:prelude>:8:in `synchronize'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:114:in `block in call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/reloader.rb:34:in `run'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:108:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/railties/lib/rails/rack/static.rb:31:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `block in call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/rails/railties/lib/rails/rack/log_tailer.rb:17:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /home/kuba/oauth/oauth-example/consumer/vendor/gems/rack-1.0.0/lib/rack/handler/webrick.rb:46:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:22:02) [GET]
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (ArgumentError) on line #9 of app/views/users/show.html.haml:
+6: %p
+7:   Name:
+8:   = @user.name
+9: 
+10: %p= link_to "Back to home", root_path
+
+    app/models/user.rb:42:in `remote_attributes'
+    app/models/user.rb:47:in `name'
+    app/views/users/show.html.haml:9:in `_run_haml_app47views47users47show46html46haml'
+    haml (2.2.8) [v] lib/haml/helpers/action_view_mods.rb:13:in `render_with_haml'
+    haml (2.2.8) [v] lib/haml/helpers/action_view_mods.rb:13:in `render_with_haml'
+    haml (2.2.8) [v] lib/sass/plugin/rails.rb:19:in `process'
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (98.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:23:24) [GET]
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (ArgumentError) on line #9 of app/views/users/show.html.haml:
+6: %p
+7:   Name:
+8:   = @user.name
+9: 
+10: %p= link_to "Back to home", root_path
+
+    app/models/user.rb:42:in `remote_attributes'
+    app/models/user.rb:47:in `name'
+    app/views/users/show.html.haml:9:in `_run_haml_app47views47users47show46html46haml'
+    haml (2.2.8) [v] lib/haml/helpers/action_view_mods.rb:13:in `render_with_haml'
+    haml (2.2.8) [v] lib/haml/helpers/action_view_mods.rb:13:in `render_with_haml'
+    haml (2.2.8) [v] lib/sass/plugin/rails.rb:19:in `process'
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (152.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:23:25) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (ArgumentError) on line #9 of app/views/users/show.html.haml:
+6: %p
+7:   Name:
+8:   = @user.name
+9: 
+10: %p= link_to "Back to home", root_path
+
+    app/models/user.rb:42:in `remote_attributes'
+    app/models/user.rb:47:in `name'
+    app/views/users/show.html.haml:9:in `_run_haml_app47views47users47show46html46haml'
+    haml (2.2.8) [v] lib/haml/helpers/action_view_mods.rb:13:in `render_with_haml'
+    haml (2.2.8) [v] lib/haml/helpers/action_view_mods.rb:13:in `render_with_haml'
+    haml (2.2.8) [v] lib/sass/plugin/rails.rb:19:in `process'
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (163.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:23:55) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:24:38) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (ArgumentError) on line #9 of app/views/users/show.html.haml:
+6: %p
+7:   Name:
+8:   = @user.name
+9: 
+10: %p= link_to "Back to home", root_path
+
+    app/models/user.rb:42:in `remote_attributes'
+    app/models/user.rb:47:in `name'
+    app/views/users/show.html.haml:9:in `_run_haml_app47views47users47show46html46haml'
+    haml (2.2.8) [v] lib/haml/helpers/action_view_mods.rb:13:in `render_with_haml'
+    haml (2.2.8) [v] lib/haml/helpers/action_view_mods.rb:13:in `render_with_haml'
+    haml (2.2.8) [v] lib/sass/plugin/rails.rb:19:in `process'
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (146.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:24:51) [GET]
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:24:59) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:25:05) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:28:42) [GET]
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 13:29:30) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 14:00:37) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 14:00:41) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 12ms (View: 10, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 14:00:41) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 12ms (View: 10, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 14:00:43) [GET]
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 14:00:44) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 14:00:47) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 14:00:48) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 14:00:49) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 22ms (View: 18, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 14:02:03) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 14:02:17) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 14:02:37) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 22ms (View: 18, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 14:02:37) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 14:02:40) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 14:02:41) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 14:02:44) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 23ms (View: 19, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-10-19 14:02:44) [DELETE]
+  Parameters: {"authenticity_token"=>"BrcFL99EtuP5wN6GLgQVCPrLVMI0e4sphBwBjnnnQ2M="}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Redirected to http://localhost:3001/
+Completed in 17ms (DB: 1) | 302 Found [http://localhost/user_session]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 14:02:44) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 18ms (View: 15, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 14:02:46) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 18ms (View: 14, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-10-19 14:02:46) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/oauth/authorize?oauth_token=1440mVXvW5IFei1oBjZb
+Completed in 331ms (DB: 0) | 302 Found [http://localhost/user_session/new]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-10-19 14:02:50) [GET]
+  Parameters: {"oauth_token"=>"1440mVXvW5IFei1oBjZb", "oauth_verifier"=>"2qWJ4JZNCqiQMecK23nZ"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'kuba') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kuba' AND "users".id <> 3) LIMIT 1[0m
+  [4;35;1mUser Update (1.6ms)[0m   [0mUPDATE "users" SET "token" = 'SwzOnGQc0JCfr9WtxgtV', "secret" = 'pKm0X5vk0b179BlaBNpek4e6aMoHbMXQwDJlz5Mo', "updated_at" = '2009-10-19 14:02:51' WHERE "id" = 3[0m
+Redirected to http://localhost:3001/
+Completed in 841ms (DB: 3) | 302 Found [http://localhost/user_session/create?oauth_token=1440mVXvW5IFei1oBjZb&oauth_verifier=2qWJ4JZNCqiQMecK23nZ]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 14:02:51) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 21ms (View: 17, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 14:02:51) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 55ms (View: 52, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 14:02:52) [GET]
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 335ms (View: 319, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 14:02:53) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 411ms (View: 394, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 14:02:54) [GET]
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 276ms (View: 261, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 14:02:54) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 255ms (View: 247, DB: 0) | 200 OK [http://localhost/account]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 14:03:35) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 22ms (View: 18, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 14:03:36) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 281ms (View: 268, DB: 0) | 200 OK [http://localhost/account]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 14:03:37) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 12ms (View: 10, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 14:05:29) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 21ms (View: 17, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 14:05:30) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 14:26:31) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 78ms (View: 74, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 15:17:51) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 242ms (View: 234, DB: 0) | 200 OK [http://localhost/account]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 15:17:56) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 20ms (View: 16, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-10-19 15:17:57) [DELETE]
+  Parameters: {"authenticity_token"=>"BrcFL99EtuP5wN6GLgQVCPrLVMI0e4sphBwBjnnnQ2M="}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Redirected to http://localhost:3001/
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/user_session]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 15:17:57) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 9ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 15:17:58) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 19ms (View: 15, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 15:17:59) [GET]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3001/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 6ms (DB: 0) | 302 Found [http://localhost/account]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-10-19 15:17:59) [GET]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/oauth/authorize?oauth_token=FSjWBWd3jsYaPiqHAFky
+Completed in 322ms (DB: 0) | 302 Found [http://localhost/user_session/new]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-10-19 15:18:00) [GET]
+  Parameters: {"oauth_token"=>"FSjWBWd3jsYaPiqHAFky", "oauth_verifier"=>"4acGiX1XP6LSJIbdXQqK"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'kuba') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kuba' AND "users".id <> 3) LIMIT 1[0m
+Redirected to http://localhost:3001/account
+Completed in 771ms (DB: 1) | 302 Found [http://localhost/user_session/create?oauth_token=FSjWBWd3jsYaPiqHAFky&oauth_verifier=4acGiX1XP6LSJIbdXQqK]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 15:18:01) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 341ms (View: 326, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 15:18:03) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 237ms (View: 225, DB: 0) | 200 OK [http://localhost/account]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-10-19 15:26:07) [DELETE]
+  Parameters: {"authenticity_token"=>"BrcFL99EtuP5wN6GLgQVCPrLVMI0e4sphBwBjnnnQ2M="}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Redirected to http://localhost:3001/
+Completed in 8ms (DB: 0) | 302 Found [http://localhost/user_session]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 15:26:07) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 9ms (View: 7, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 15:26:09) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Completed in 17ms (View: 14, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-10-19 15:26:10) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/oauth/authorize?oauth_token=KZAgpfsfr0gjPY8JZsX9
+Completed in 377ms (DB: 0) | 302 Found [http://localhost/user_session/new]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-10-19 15:26:11) [GET]
+  Parameters: {"oauth_token"=>"KZAgpfsfr0gjPY8JZsX9", "oauth_verifier"=>"28o2Z4DXMgziuLb9OnCw"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'kuba') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'kuba' AND "users".id <> 3) LIMIT 1[0m
+Redirected to http://localhost:3001/
+Completed in 776ms (DB: 1) | 302 Found [http://localhost/user_session/create?oauth_token=KZAgpfsfr0gjPY8JZsX9&oauth_verifier=28o2Z4DXMgziuLb9OnCw]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 15:26:12) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 21ms (View: 17, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 15:26:14) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 17ms (View: 13, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 15:26:15) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 312ms (View: 302, DB: 0) | 200 OK [http://localhost/account]
+
+
+Processing HomeController#show (for 127.0.0.1 at 2009-10-19 15:26:17) [GET]
+Rendering template within layouts/application
+Rendering home/show
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 21ms (View: 17, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-10-19 15:26:18) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 298ms (View: 290, DB: 0) | 200 OK [http://localhost/account]

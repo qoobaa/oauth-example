@@ -40,4 +40,12 @@ class ApplicationController < ActionController::Base
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
   end
+
+  def rescue_action(exception)
+    if exception.kind_of?(ActiveResource::ConnectionError) or exception.kind_of?(ActionView::TemplateError) and exception.original_exception.kind_of?(ActiveResource::ConnectionError)
+      render :text => "Connection Error"
+    else
+      super
+    end
+  end
 end
